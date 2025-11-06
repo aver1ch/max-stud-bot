@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
+  let login = "admin";
+  let password = "1234"
+
+  
   return (
     <div className="login-wrap">
       <h1 className="login-title">Вход</h1>

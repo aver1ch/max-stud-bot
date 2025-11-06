@@ -9,7 +9,7 @@ import (
 func main() {
 	http.HandleFunc("/api/login", handlers.LoginHandler)
 
-	fs := http.FileServer(http.Dir("../frontend/build"))
+	fs := http.FileServer(http.Dir("../frontend/build")) // путь к папке, где лежит сборка фронта
 	http.Handle("/", fs)
 
 	http.HandleFunc("/",

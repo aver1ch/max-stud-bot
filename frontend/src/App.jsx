@@ -1,12 +1,26 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import Login from "./pages/Login";
+
 function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
+  );
+}
+
+function MainPage() {
+  const navigate = useNavigate();
+
   return (
     <div>
       <header className="header">
         <div className="container">
           <img src="/polylogo.svg" alt="PolyLogo" className="logo" />
-          {/* <img src="/notify.svg" alt="Notification" className="noty"/> */}
         </div>
       </header>
       <main className="main">
@@ -32,7 +46,12 @@ function App() {
             </div>
             <nav className="nav">
               <button className="btn">Студенческий клуб</button>
-              <button className="btn">Общежитие</button>
+
+              {/* Переход на LOGIN */}
+              <button className="btn" onClick={() => navigate("/login")}>
+                Общежитие
+              </button>
+
               <button className="btn">Расписание</button>
             </nav>
           </div>

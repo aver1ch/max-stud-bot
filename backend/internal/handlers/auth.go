@@ -11,7 +11,6 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Получаем данные формы
 	login := r.FormValue("login")
 	password := r.FormValue("password")
 

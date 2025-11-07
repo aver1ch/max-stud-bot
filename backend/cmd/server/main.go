@@ -2,20 +2,27 @@ package main
 
 import (
 	"net/http"
+	"os"
+	"path/filepath"
 
 	"server/internal/handlers"
 )
 
 func main() {
-	http.HandleFunc("/api/login", handlers.LoginHandler)
+	distDir := "../frontend/dist"
+	fs := http.FileServer(http.Dir(distDir))
 
-	fs := http.FileServer(http.Dir("../frontend/build")) // путь к папке, где лежит сборка фронта
-	http.Handle("/", fs)
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		path := filepath.Join(distDir, r.URL.Path)
+		_, err := os.Stat(path)
+		if os.IsNotExist(err) {
+			http.ServeFile(w, r, filepath.Join(distDir, "index.html"))
+			return
+		}
+		fs.ServeHTTP(w, r)
+	})
 
-	http.HandleFunc("/",
-		func(w http.ResponseWriter, r *http.Request) {
-			http.ServeFile(w, r, "../frontend/build/index.html")
-		})
+	http.HandleFunc("/auth", handlers.LoginHandler)
 
 	http.ListenAndServe(":8080", nil)
 }

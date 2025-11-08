@@ -1,0 +1,22 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  width: 390px;
+  background-color: #ffffff;
+  border-radius: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 140, 124, 1) 0%,
+    rgba(0, 129, 209, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

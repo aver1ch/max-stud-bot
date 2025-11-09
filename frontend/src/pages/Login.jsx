@@ -1,52 +1,22 @@
-import React, { useState } from "react";
-import "./Login.css";
-import { useNavigate } from "react-router-dom";
+import "../App.css";
 
 function Login() {
-  const navigate = useNavigate();
-
-  const mylogin = "admin";
-  const mypassword = "1234";
-
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
-
-  const Log = () => {
-    if (login === mylogin && password === mypassword) {
-      alert("Успешный вход");
-    } else {
-      alert("Неверный логин или пароль");
-    }
-  };
-
   return (
-    <div className="login-wrap">
-      <h1 className="login-title">Вход</h1>
-
-      <input
-        type="text"
-        placeholder="Логин"
-        className="login-input"
-        value={login}
-        onChange={(e) => setLogin(e.target.value)}
-      />
-
-      <input
-        type="password"
-        placeholder="Пароль"
-        className="login-input"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-
-      <button className="login-btn" onClick={Log}>
-        Войти
-      </button>
-
-      <button className="login-btn" onClick={() => navigate("/")}>
-        Назад
-      </button>
-    </div>
+    <main>
+      <div className="container">
+        <div className="input-wrapper">
+          <label htmlFor="username" className="input-label-username">
+            Логин
+          </label>
+          <input type="text" id="username" className="input-login" placeholder="Введите логин"></input>
+          <label htmlFor="password" className="input-label-password">
+            Пароль
+          </label>
+          <input type="password" id="password" className="input-password" placeholder="Введите пароль"></input>
+          <button className="login-btn">Войти</button>
+        </div>
+      </div>
+    </main>
   );
 }
 

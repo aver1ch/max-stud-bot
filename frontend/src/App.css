@@ -17,12 +17,51 @@
 }
 
 .colored {
-  background: #fc909f;
+  background: #182832;
   background: linear-gradient(
     180deg,
-    rgba(252, 144, 159, 1) 0%,
-    rgba(98, 120, 176, 1) 100%
+    rgba(24, 40, 50, 1) 0%,
+    rgba(43, 76, 94, 1) 65%
   );
+}
+
+.welcome-desc {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.welcome-desc::before {
+  content: "";
+  width: 15px;
+  height: 10px;
+  mask-image: url("/checkTrue.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  background-color: white;
+}
+
+.text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.welcome-desc-title {
+  text-align: center;
+  color: white;
+}
+
+.welcome-btn-enter {
+  background-color: #1f3543;
+  border: none;
+  border-radius: 70px;
+  color: white;
+  padding: 19px 53px;
 }
 
 .welcome-btn {

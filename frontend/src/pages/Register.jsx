@@ -60,7 +60,6 @@ function Register() {
             ))}
           </select>
 
-          {/* Остальные поля формы */}
           <label htmlFor="username-register" className="register-labels">
             ФИО:
           </label>

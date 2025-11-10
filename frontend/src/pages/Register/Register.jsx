@@ -9,7 +9,8 @@ function Register() {
   const navigate = useNavigate();
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedUniversity, setSelectedUniversity] = useState("");
-  const [selectedPosition, setSelectedPosition] = useState(""); // TODO: добавить по галочке "Я сотрудник" возможность ввода код-пароля
+  const [isEmployee, setIsEmployee] = useState(false);
+  const [codePassword, setCodePassword] = useState(""); // для код-пароля
 
   const handleCityChange = (e) => {
     setSelectedCity(e.target.value);
@@ -21,8 +22,8 @@ function Register() {
     : [];
 
   const handlePositionChange = (e) => {
-    setSelectedPosition(e.target.value);
-    setSelectedPosition("");
+    setIsEmployee(e.target.checked);
+    if (!e.target.checked) setCodePassword(""); // сброс, если галочка убрана
   };
 
   return (
@@ -93,6 +94,17 @@ function Register() {
               Я сотрудник
             </label>
           </div>
+
+          {isEmployee && (
+            <Form
+              label="Код-пароль"
+              id="code-password"
+              type="password"
+              value={codePassword}
+              onChange={(e) => setCodePassword(e.target.value)}
+              placeholder="_ _ _ _ _ _"
+            />
+          )}
 
           <Button
             text="Зарегистрироваться"

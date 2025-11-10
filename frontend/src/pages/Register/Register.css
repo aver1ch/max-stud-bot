@@ -61,6 +61,7 @@
     gap: 10px;
     font-size: 16px;
     font-weight: 600;
+    margin-bottom: 20px;
   }
   
   .radio-input {
@@ -85,8 +86,14 @@
     animation-duration: 0.5s;
   }
 
-  button {
+button {
     margin-top: 15px;
   }
 
+.register-error {
+  color: #ff4d4f;
+  font-size: 14px;
+  margin: 10px 0;
+  text-align: center;
+}
   

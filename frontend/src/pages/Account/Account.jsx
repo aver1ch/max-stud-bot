@@ -8,7 +8,12 @@ function Account() {
   const navigate = useNavigate();
   return (
     <>
-    <HeaderNav text="Мои данные" backTo="/mainpage" />
+      <HeaderNav
+        text="Профиль"
+        backTo="/mainpage"
+        textColor="#ffffffff"
+        iconColor="#fafafaff"
+      />
 
       <MainContent>
         <div className="account-wrapper">

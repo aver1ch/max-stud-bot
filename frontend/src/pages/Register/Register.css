@@ -90,10 +90,8 @@ button {
     margin-top: 15px;
   }
 
-.register-error {
-  color: #ff4d4f;
-  font-size: 14px;
-  margin: 10px 0;
-  text-align: center;
+.register-page-bg-color {
+  background-color: white;
 }
+
   

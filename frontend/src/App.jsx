@@ -7,6 +7,7 @@ import MainPage from "./pages/MainPage/MainPage.jsx";
 import Account from "./pages/Account/Account.jsx";
 import University from "./pages/University/University.jsx";
 import Schedule from "./pages/University/Schedule/Schedule.jsx"
+import Dormitory from "./pages/Dormitory/Dormitory.jsx";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/university" element={<University />} />
         <Route path="/schedule" element={<Schedule />} />
+        <Route path="/dormitory" element={<Dormitory />} />
       </Routes>
     </Router>
   );

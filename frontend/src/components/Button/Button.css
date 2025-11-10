@@ -10,11 +10,10 @@
     color: white;
     animation-name: up;
     animation-duration: 1s;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
   }
 
   .global-btn:hover {
     transform: scale(1.03);
-    background: rgba(130, 134, 146, 1);
-    color: #ffffff;
   }
   

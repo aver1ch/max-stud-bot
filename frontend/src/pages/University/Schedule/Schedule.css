@@ -1,0 +1,43 @@
+.schedule-date {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 20px 0;
+  color: #000;
+}
+
+.schedule-block {
+  width: 100%;
+  max-width: 402px;
+  background: #d9d9d9;
+  padding: 20px;
+  margin-top: 5px;
+}
+
+.schedule-day {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.schedule-item {
+  margin-bottom: 15px;
+}
+
+.time {
+  font-weight: 600;
+  color: #000;
+}
+
+.lesson {
+  margin-top: 3px;
+  font-weight: 500;
+  color: #333;
+}
+
+.teacher {
+  margin-top: 2px;
+  font-weight: 400;
+  color: #444;
+}

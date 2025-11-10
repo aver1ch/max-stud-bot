@@ -4,9 +4,9 @@ import Header from "../../components/Header/Header";
 import MainContent from "../../components/MainContent/MainContent";
 import Button from "../../components/Button/Button";
 import Footer from "../../components/Footer/Footer";
-import "./University.css";
+import "./Dormitory.css";
 
-function University() {
+function Dormitory() {
   const navigate = useNavigate();
   return (
     <div className="app-container">
@@ -14,16 +14,17 @@ function University() {
       <div className="main-content-wrapper">
         <MainContent>
           <HeaderNav
-            text="Университет"
+            text="Общежитие"
             backTo="/mainpage"
             textColor="#000000ff"
             iconColor="#000000ff"
           />
-          <Button text="Расписание" onClick={() => navigate("/schedule")} className="university-btn"/>
-          <Button text="Оплата обучения" className="university-btn"/>
-          <Button text="Зачетная книжка" className="university-btn"/>
-          <Button text="ПрофСоюз" className="university-btn"/>
-          <Button text="Дирекция" className="university-btn"/>
+          <Button text="Общая информация" className="dormitory-btn"/>
+          <Button text="Прачечная" className="dormitory-btn"/>
+          <Button text="Учебная комната" className="dormitory-btn"/>
+          <Button text="Оплата общежития" className="dormitory-btn"/>
+          <Button text="Оплата парковки" className="dormitory-btn"/>
+          <Button text="Вызов мастера" className="dormitory-btn"/>
         </MainContent>
       </div>
       <Footer />
@@ -31,4 +32,4 @@ function University() {
   );
 }
 
-export default University;
+export default Dormitory;

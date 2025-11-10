@@ -8,7 +8,6 @@ function SelectVar() {
   return (
     <main>
       <div className="container colored">
-        {/* <h1 className="welcome-title">Добро пожаловать</h1> */}
         <Button
           text="Войти как студент"
           onClick={() => navigate("/login")}

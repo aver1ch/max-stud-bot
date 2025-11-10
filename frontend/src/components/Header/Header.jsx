@@ -1,12 +1,12 @@
-import { useNavigate } from "react-router-dom";
-import Button from "../../components/Button/Button";
+import { Link } from "react-router-dom";
+
 import "./Header.css";
 
 function Header() {
   return (
     <header>
       <div className="header-container">
-        <a href="!#" className="header-profile">
+        <Link to="/account" className="header-profile">
           <span>
             <img
               src="./profilelogo.svg"
@@ -15,7 +15,7 @@ function Header() {
             />
           </span>
           Владимир
-        </a>
+        </Link>
         <img src="./notify.svg" alt="notify" className="header-notify" />
       </div>
     </header>

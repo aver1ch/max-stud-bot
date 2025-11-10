@@ -1,0 +1,41 @@
+.header-container {
+  width: 402px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding: 5px 15px;
+  border-radius: 35px;
+}
+
+.header-profile {
+  display: flex;
+  align-items: center; /* чтобы текст и иконка профиля были на одном уровне */
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border-radius: 35px;
+  gap: 7px;
+}
+
+.header-profile-logo {
+  position: relative;
+  top: 2px;
+  width: 30px;
+  height: 30px;
+}
+
+.header-notify {
+  width: 30px;
+  height: 30px;
+}

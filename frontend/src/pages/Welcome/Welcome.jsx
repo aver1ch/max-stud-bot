@@ -12,8 +12,7 @@ function Welcome() {
           <h1 className="welcome-desc-title">Альма поможет:</h1>
           <p className="welcome-desc">Заплатить за общежитие</p>
           <p className="welcome-desc">Следить за расписанием</p>
-          <p className="welcome-desc">Вовремя получать уведомления</p>
-          <p className="welcome-desc">от администрации</p>
+          <p className="welcome-desc">Вовремя получать уведомления от администрации</p>
           <p className="welcome-desc">Узнавать о мероприятиях</p>
           <p className="welcome-desc">Подать заявку на ремонт мебели</p>
           <p className="welcome-desc"> Записаться на кружки</p>

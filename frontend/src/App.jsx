@@ -3,6 +3,7 @@ import SelectVar from "./pages/SelectVar/SelectVar.jsx";
 import Welcome from "./pages/Welcome/Welcome.jsx";
 import Login from "./pages/Login/Login.jsx";
 import Register from "./pages/Register/Register.jsx";
+import MainPage from "./pages/MainPage/MainPage.jsx";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/selectVar" element={<SelectVar />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/mainpage" element={<MainPage />} />
       </Routes>
     </Router>
   );

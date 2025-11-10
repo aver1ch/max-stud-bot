@@ -1,10 +1,12 @@
 import "./Register.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { cities, universitiesByCity } from "../../data";
 import Button from "../../components/Button/Button";
 import Form from "../../components/Form/Form";
 
 function Register() {
+  const navigate = useNavigate();
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedUniversity, setSelectedUniversity] = useState("");
   const [selectedPosition, setSelectedPosition] = useState(""); // TODO: добавить по галочке "Я сотрудник" возможность ввода код-пароля
@@ -68,8 +70,16 @@ function Register() {
 
           <Form label="ФИО" id="username-register" />
           <Form label="Логин" id="username-register-login" />
-          <Form label="Пароль" id="username-register-password" type="password" />
-          <Form label="Повторите пароль" id="username-register-password-repeat" type="password" />
+          <Form
+            label="Пароль"
+            id="username-register-password"
+            type="password"
+          />
+          <Form
+            label="Повторите пароль"
+            id="username-register-password-repeat"
+            type="password"
+          />
 
           <div className="radio-wrapper">
             <label className="radio-item">
@@ -84,7 +94,10 @@ function Register() {
             </label>
           </div>
 
-          <Button text="Зарегистрироваться" />
+          <Button
+            text="Зарегистрироваться"
+            onClick={() => navigate("/mainpage")}
+          />
         </div>
       </div>
     </main>

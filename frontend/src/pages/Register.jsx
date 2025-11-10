@@ -5,6 +5,7 @@ import { cities, universitiesByCity } from "../data";
 function Register() {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedUniversity, setSelectedUniversity] = useState("");
+  const [selectedPosition, setSelectedPosition] = useState("");
 
   const handleCityChange = (e) => {
     setSelectedCity(e.target.value);
@@ -14,6 +15,11 @@ function Register() {
   const currentUniversities = selectedCity
     ? universitiesByCity[selectedCity]
     : [];
+
+  const handlePositionChange = (e) => {
+    setSelectedPosition(e.target.value);
+    setSelectedPosition("");
+  }
 
   return (
     <main>

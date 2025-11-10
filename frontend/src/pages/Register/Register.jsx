@@ -7,7 +7,7 @@ import Form from "../../components/Form/Form";
 function Register() {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedUniversity, setSelectedUniversity] = useState("");
-  const [selectedPosition, setSelectedPosition] = useState("");
+  const [selectedPosition, setSelectedPosition] = useState(""); // TODO: добавить по галочке "Я сотрудник" возможность ввода код-пароля
 
   const handleCityChange = (e) => {
     setSelectedCity(e.target.value);
@@ -80,7 +80,7 @@ function Register() {
                 className="radio-input"
                 onChange={handlePositionChange}
               />
-              Сотрудник
+              Я сотрудник
             </label>
           </div>
 

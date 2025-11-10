@@ -4,17 +4,6 @@
   padding: 0;
 }
 
-.account-container {
-  width: 100%;
-  max-width: 402px;
-  margin: 0 auto;
-  margin-top: 25px;
-  padding: 5px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-}
 
 .profile-photo {
   margin-top: -40px;

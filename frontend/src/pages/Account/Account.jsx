@@ -1,22 +1,14 @@
 import "./Account.css";
 import MainContent from "../../components/MainContent/MainContent";
 import Footer from "../../components/Footer/Footer";
-import { Link } from "react-router-dom";
+import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import { useNavigate } from "react-router-dom";
 
 function Account() {
   const navigate = useNavigate();
   return (
     <>
-      <div className="account-container">
-        <img
-          src="./arrowback.svg"
-          alt="back"
-          className="back-arrow"
-          onClick={() => navigate("/mainpage")}
-        />
-        <p>Мои данные</p>
-      </div>
+    <HeaderNav text="Мои данные" backTo="/mainpage" />
 
       <MainContent>
         <div className="account-wrapper">

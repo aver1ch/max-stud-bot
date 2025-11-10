@@ -4,29 +4,41 @@ import (
 	"encoding/json"
 	"log/slog"
 	"net/http"
+	"server/internal/models"
+	"server/internal/services"
 )
 
-func LoginHandler(w http.ResponseWriter, r *http.Request) {
-	slog.Debug("Check is request is POST in LoginHandler function")
+type AuthHandler struct {
+	service *services.AuthService
+}
+
+func NewAuthHandler(service *services.AuthService) *AuthHandler {
+	return &AuthHandler{service: service}
+}
+
+func (h *AuthHandler) LoginHandler(w http.ResponseWriter, r *http.Request) {
+	var err error
+	slog.Info("Check is request is POST in LoginHandler function")
 	if r.Method != http.MethodPost {
 		http.Error(w, "Only POST allowed", http.StatusMethodNotAllowed)
 		return
 	}
 
-	var credentials credentials
-
-	slog.Debug("Pull login and password from request in LoginHandler function")
-	if err := json.NewDecoder(r.Body).Decode(&credentials); err != nil {
+	var credentials models.LoginRequest
+	slog.Info("Pull login and password from request in LoginHandler function")
+	if err = json.NewDecoder(r.Body).Decode(&credentials); err != nil {
 		http.Error(w, "invalid json", http.StatusBadRequest)
 		return
 	}
 
-	slog.Debug("Cooking response")
-	response := map[string]string{
-		"token": "vovan",
-	}
+	isSuccess, err := h.service.Login(credentials)
 
-	slog.Debug("Sending response")
+	slog.Info("Login and password is valid")
+
+	slog.Info("Cooking response")
+	response := map[string]bool{"isAuth": isSuccess}
+
+	slog.Info("Sending response")
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 

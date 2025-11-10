@@ -15,6 +15,7 @@ function SelectVar() {
         />
         <Button 
           text="Войти как сотрудник"
+          onClick={() => navigate("/login")}
         />
         <Button
           text="Зарегистрироваться"

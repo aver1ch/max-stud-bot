@@ -1,15 +1,26 @@
 import React from "react";
-import Button from "../../components/Button/Button";
 import "./MainContent.css";
 
-function MainContent() {
+function MainContent({ title, buttons = [], children }) {
   return (
     <div className="main-content">
       <div className="buttons-row">
-        <Button text="Университет" />
-        <Button text="Общежитие" />
-        <Button text="Внеучебная деятельность" />
-        <h2>Актуальные мероприятия</h2>
+        {/* Кнопки, если переданы */}
+        {buttons.map((btn, index) => (
+          <button
+            key={index}
+            className={`global-btn main-content-btn`}
+            onClick={btn.onClick}
+          >
+            {btn.text}
+          </button>
+        ))}
+
+        {/* Заголовок, если передан */}
+        {title && <h2 className="main-content-title">{title}</h2>}
+
+        {/* Любой дополнительный контент через children */}
+        {children}
       </div>
     </div>
   );

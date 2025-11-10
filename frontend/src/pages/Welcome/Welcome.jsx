@@ -1,5 +1,6 @@
-import "../App.css";
+import "./Welcome.css";
 import { useNavigate } from "react-router-dom";
+import Button from "../../components/Button/Button";
 
 function Welcome() {
   const navigate = useNavigate();
@@ -16,7 +17,10 @@ function Welcome() {
           <p className="welcome-desc">Узнавать о мероприятиях</p>
           <p className="welcome-desc">Подать заявку на ремонт мебели</p>
           <p className="welcome-desc"> Записаться на кружки</p>
-          <button className="welcome-btn-enter" onClick={() => navigate("/selectvar")}>Добро пожаловать</button>
+          <Button 
+            text="Добро пожаловать" 
+            onClick={() => navigate("/selectVar")}
+            />
         </div>
       </div>
     </main>

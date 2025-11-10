@@ -1,0 +1,34 @@
+.welcome-desc {
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .welcome-desc::before {
+    content: "";
+    width: 15px;
+    height: 10px;
+    mask-image: url("/checkTrue.svg");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    background-color: white;
+  }
+
+  .welcome-desc-title {
+    text-align: center;
+    color: white;
+  }
+
+  .welcome-title {
+    margin-bottom: 200px;
+    animation-name: up;
+    animation-duration: 1s;
+    transition: all 1s;
+  }
+  
+  .welcome-title:hover {
+    transform: scale(1.1);
+  }

@@ -1,0 +1,33 @@
+.input-label-username {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  .input-label-password {
+    margin-left: 10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+  .input-login {
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 45px;
+    padding-left: 20px;
+    min-height: 40px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  .input-password {
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 45px;
+    padding-left: 20px;
+    min-height: 40px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 200px;
+  }

@@ -32,3 +32,8 @@
   .welcome-title:hover {
     transform: scale(1.1);
   }
+
+  .text-wrapper {
+    display: flex;
+    align-items: center;
+  }

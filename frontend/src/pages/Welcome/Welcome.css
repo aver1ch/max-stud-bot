@@ -1,42 +1,50 @@
 .welcome-desc {
-    color: white;
-    font-size: 16px;
-    font-weight: 300;
-    max-width: 300px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .welcome-desc::before {
-    content: "";
-    width: 15px;
-    height: 10px;
-    mask-image: url("/checkTrue.svg");
-    mask-size: contain;
-    mask-repeat: no-repeat;
-    background-color: white;
-  }
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  max-width: 300px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-left: 30px;
+}
 
-  .welcome-desc-title {
-    text-align: center;
-    color: white;
-  }
+.welcome-desc::before {
+  content: "";
+  width: 15px;
+  height: 10px;
+  mask-image: url("/checkTrue.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  background-color: white;
+}
 
-  .welcome-title {
-    margin-bottom: 200px;
-    animation-name: up;
-    animation-duration: 1s;
-    transition: all 1s;
-  }
-  
-  .welcome-title:hover {
-    transform: scale(1.1);
-  }
+.welcome-desc-title {
+  text-align: center;
+  color: white;
+}
 
-  .text-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.welcome-title {
+  margin-bottom: 200px;
+  animation-name: up;
+  animation-duration: 1s;
+  transition: all 1s;
+}
+
+.welcome-title:hover {
+  transform: scale(1.1);
+}
+
+.text-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-desc-last {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  max-width: 300px;
+  text-align: center;
+  margin-top: 30px; /* отступ от остальных */
+}

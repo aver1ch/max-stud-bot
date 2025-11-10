@@ -12,14 +12,17 @@ function Welcome() {
           <h1 className="welcome-desc-title">Альма поможет:</h1>
           <p className="welcome-desc">Заплатить за общежитие</p>
           <p className="welcome-desc">Следить за расписанием</p>
-          <p className="welcome-desc">Вовремя получать уведомления от администрации</p>
+          <p className="welcome-desc">
+            Вовремя получать уведомления от администрации
+          </p>
           <p className="welcome-desc">Узнавать о мероприятиях</p>
           <p className="welcome-desc">Подать заявку на ремонт мебели</p>
-          <p className="welcome-desc"> Записаться на кружки</p>
-          <Button 
-            text="Добро пожаловать" 
+          <p className="welcome-desc">Записаться на кружки</p>
+          <p className="welcome-desc-last">а также многое другое!</p>
+          <Button
+            text="Добро пожаловать"
             onClick={() => navigate("/selectVar")}
-            />
+          />
         </div>
       </div>
     </main>

@@ -1,0 +1,94 @@
+.dorm-big-img {
+  width: 100%;
+  max-width: 400px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin: 10px auto 10px auto;
+}
+
+
+.dorm-small-img-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  gap: 5px;
+}
+
+.dorm-small-img {
+  width: 76px;
+  height: 43px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.dorm-desc {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 22px;
+  color: #000;
+  margin: 20px auto 25px auto;
+  max-width: 330px;
+}
+
+
+.dorm-booking-box {
+  background-color: #6f8c9e;
+  border-radius: 25px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 20px 15px;
+  max-width: 100%;
+  margin: 0 auto;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.booking-info-text {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.booking-fields {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.booking-label {
+  width: 75%;
+  text-align: left;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.booking-input {
+  width: 100%;
+  max-width: 290px;
+  padding: 8px 12px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.booking-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+

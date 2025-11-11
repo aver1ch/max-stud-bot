@@ -11,6 +11,7 @@ import Dormitory from "./pages/Dormitory/Dormitory.jsx";
 import MainInfo from "./pages/Dormitory/MainInfo/MainInfo.jsx";
 import GradeBook from "./pages/University/GradeBook/GradeBook.jsx";
 import Directorate from "./pages/University/Directorate/Directorate.jsx"
+import StudyRoom from "./pages/Dormitory/StudyRoom/StudyRoom.jsx"
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/maininfo" element={<MainInfo />} />
         <Route path="/gradebook" element={<GradeBook />} />
         <Route path="/directorate" element={<Directorate />} />
+        <Route path="/studyroom" element={<StudyRoom />} />
       </Routes>
     </Router>
   );

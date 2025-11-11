@@ -10,6 +10,7 @@ import Schedule from "./pages/University/Schedule/Schedule.jsx"
 import Dormitory from "./pages/Dormitory/Dormitory.jsx";
 import MainInfo from "./pages/Dormitory/MainInfo/MainInfo.jsx";
 import GradeBook from "./pages/University/GradeBook/GradeBook.jsx";
+import Directorate from "./pages/University/Directorate/Directorate.jsx"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/dormitory" element={<Dormitory />} />
         <Route path="/maininfo" element={<MainInfo />} />
         <Route path="/gradebook" element={<GradeBook />} />
+        <Route path="/directorate" element={<Directorate />} />
       </Routes>
     </Router>
   );

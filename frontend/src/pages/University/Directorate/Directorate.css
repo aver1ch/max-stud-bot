@@ -1,0 +1,66 @@
+/* Общий стиль всех боксов */
+.directorate-box {
+  width: calc(100% - 30px);
+  max-width: 402px;
+  padding: 40px 15px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+.primary-box {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(111, 140, 158, 1);
+}
+
+.secondary-box {
+  background-color: #59707e;
+}
+
+/* Квадрат под фото */
+.directorate-photo {
+  width: 90px;
+  height: 115px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.directorate-content {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.directorate-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+
+.white-text p {
+  color: white !important;
+}
+
+.d-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.d-section-title {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.d-info {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.directorate-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}

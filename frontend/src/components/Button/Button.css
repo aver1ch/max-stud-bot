@@ -1,19 +1,16 @@
 .global-btn {
-    padding: 19px 41px;
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 11px;
-    background: rgba(31, 53, 67, 1);
-    border: none;
-    border-radius: 75px;
-    transition: all 0.2s;
-    color: white;
-    animation-name: up;
-    animation-duration: 1s;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
-  }
+  padding: 19px 41px;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 11px;
+  background: rgba(31, 53, 67, 1);
+  border: none;
+  border-radius: 75px;
+  transition: all 0.2s;
+  color: white;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+}
 
-  .global-btn:hover {
-    transform: scale(1.03);
-  }
-  
+.global-btn:hover {
+  transform: scale(1.03);
+}

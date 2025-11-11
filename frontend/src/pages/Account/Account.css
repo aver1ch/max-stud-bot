@@ -113,3 +113,9 @@
   font-weight: 400;
   color: #000;
 }
+
+.hnav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

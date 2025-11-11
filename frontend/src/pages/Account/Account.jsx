@@ -8,13 +8,14 @@ function Account() {
   const navigate = useNavigate();
   return (
     <>
-      <HeaderNav
-        text="Профиль"
-        backTo="/mainpage"
-        textColor="#ffffffff"
-        iconColor="#fafafaff"
-      />
-
+      <div className="hnav">
+        <HeaderNav
+          iconSrc="./arrowback.svg"
+          text="Профиль"
+          backTo="/mainpage"
+          textColor="#ffffffff"
+        />
+      </div>
       <MainContent>
         <div className="account-wrapper">
           <img

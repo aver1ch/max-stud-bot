@@ -135,3 +135,27 @@
   font-weight: 400;
   color: rgb(0, 0, 0);
 }
+
+.floor-select-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 20px auto;
+  text-align: center;
+}
+
+.floor-select-wrapper::after{
+  content: "✓";
+  color: #274253;
+}
+
+.floor-select {
+  border: none;
+  background: none;
+  font-size: 17px;
+  font-weight: 600;
+  color: #274253;
+  cursor: pointer;
+  text-align: center;
+  appearance: none; 
+}
+

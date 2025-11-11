@@ -51,8 +51,6 @@ function MainInfo() {
           <div className="info-center">
             <h2 className="dorm-title">1 общежитие</h2>
             <img src="./domscheme.png" alt="scheme" className="dorm-scheme" />
-
-            {/* Select для этажей */}
             <div className="floor-select-wrapper">
               <select
                 className="floor-select"
@@ -82,7 +80,6 @@ function MainInfo() {
                 </div>
               ))}
             </div>
-
             <h3 className="eat-title">Где покушать?</h3>
             <div className="eat-block">
               <p className="eat-text">Солнечный день</p>
@@ -99,7 +96,6 @@ function MainInfo() {
               <p className="eat-text">Лесной пр-т 65к1, вход со двора</p>
               <p className="eat-text">5 минут пешком</p>
             </div>
-
             <h2 className="section-title">Транспорт</h2>
             <div className="transport-grid">
               {[

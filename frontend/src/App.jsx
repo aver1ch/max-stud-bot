@@ -9,6 +9,7 @@ import University from "./pages/University/University.jsx";
 import Schedule from "./pages/University/Schedule/Schedule.jsx"
 import Dormitory from "./pages/Dormitory/Dormitory.jsx";
 import MainInfo from "./pages/Dormitory/MainInfo/MainInfo.jsx";
+import GradeBook from "./pages/University/GradeBook/GradeBook.jsx";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/dormitory" element={<Dormitory />} />
         <Route path="/maininfo" element={<MainInfo />} />
+        <Route path="/gradebook" element={<GradeBook />} />
       </Routes>
     </Router>
   );

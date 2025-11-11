@@ -1,0 +1,67 @@
+.grade-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 5px 60px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.grade-header-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.grade-header-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.grade-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #888888;
+}
+
+.grade-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field-select {
+  padding: 8px 12px;
+  border-radius: 25px;
+  background-color: #ffffff;
+  border: 1px solid gray;
+  color: #cccccc;
+  font-size: 14px;
+}
+
+.subject-block {
+  display: flex;
+  justify-content: space-between;
+  background-color: #59707E;
+  padding: 10px 15px;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.subject-name {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.subject-grade {
+  font-size: 16px;
+  font-weight: 600;
+  color: #CDBC06;
+}

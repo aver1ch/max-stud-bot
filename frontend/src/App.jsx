@@ -8,6 +8,7 @@ import Account from "./pages/Account/Account.jsx";
 import University from "./pages/University/University.jsx";
 import Schedule from "./pages/University/Schedule/Schedule.jsx"
 import Dormitory from "./pages/Dormitory/Dormitory.jsx";
+import MainInfo from "./pages/Dormitory/MainInfo/MainInfo.jsx";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/university" element={<University />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/dormitory" element={<Dormitory />} />
+        <Route path="/maininfo" element={<MainInfo />} />
       </Routes>
     </Router>
   );

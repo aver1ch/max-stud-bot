@@ -1,0 +1,137 @@
+.info-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.dorm-title {
+  font-size: 36px;
+  font-weight: 500;
+  color: #274253;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.dorm-scheme {
+  width: 312px;
+  height: 196px;
+  border-radius: 15px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.floor-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.floor-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #274253;
+  margin-left: 30px;
+}
+
+.floor-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.floor-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.floor-column {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.floor-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+}
+
+.eat-title {
+  color: #274253;
+  font-size: 25px;
+  font-weight: 500;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+.eat-block {
+  width: 100%;
+  max-width: 402px;
+  background-color: #d9d9d9;
+  padding: 15px 20px;
+  margin-bottom: 5px;
+}
+
+.eat-text {
+  font-size: 15px;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.eat-text:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 24px;
+  color: #274253;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.transport-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  justify-items: center;
+  margin-bottom: 30px;
+}
+
+.transport-card {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.transport-icon {
+  width: 55px;
+  height: 55px;
+  opacity: 0.3;
+}
+
+.transport-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+}

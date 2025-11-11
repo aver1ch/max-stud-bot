@@ -19,7 +19,7 @@ function Dormitory() {
             textColor="#000000ff"
             iconColor="#000000ff"
           />
-          <Button text="Общая информация" className="dormitory-btn"/>
+          <Button text="Общая информация" className="dormitory-btn" onClick={() => navigate("/maininfo")}/>
           <Button text="Прачечная" className="dormitory-btn"/>
           <Button text="Учебная комната" className="dormitory-btn"/>
           <Button text="Оплата общежития" className="dormitory-btn"/>

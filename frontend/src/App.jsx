@@ -13,6 +13,11 @@ import GradeBook from "./pages/University/GradeBook/GradeBook.jsx";
 import Directorate from "./pages/University/Directorate/Directorate.jsx"
 import StudyRoom from "./pages/Dormitory/StudyRoom/StudyRoom.jsx"
 import MasterCall from "./pages/Dormitory/MasterCall/MasterCall.jsx"
+import ExtraActivities from "./pages/ExtraActivities/ExtraActivities.jsx"
+import Events from "./pages/ExtraActivities/Events/Events.jsx"
+import Sections from "./pages/ExtraActivities/Sections/Sections.jsx"
+import Laundry from "./pages/Dormitory/Laundry/Laundry.jsx"
+import Washing from "./pages/Dormitory/Laundry/Washing/Washing.jsx"
 
 function App() {
   return (
@@ -32,6 +37,11 @@ function App() {
         <Route path="/directorate" element={<Directorate />} />
         <Route path="/studyroom" element={<StudyRoom />} />
         <Route path="/mastercall" element={<MasterCall />} />
+        <Route path="/extraactivities" element={<ExtraActivities />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/sections" element={<Sections />} />
+        <Route path="/laundry" element={<Laundry />} />
+        <Route path="/washing" element={<Washing />} />
       </Routes>
     </Router>
   );

@@ -15,7 +15,7 @@ function StudyRoom() {
         <MainContent>
           <HeaderNav
             text="Общежитие"
-            backTo="/mainpage"
+            backTo="/dormitory"
             textColor="#274253"
             iconColor="#000000ff"
           />

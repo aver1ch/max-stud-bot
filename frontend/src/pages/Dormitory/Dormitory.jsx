@@ -17,10 +17,10 @@ function Dormitory() {
             text="Общежитие"
             backTo="/mainpage"
             textColor="#000000ff"
-            iconColor="#000000ff"
+            iconColor="#1a0909ff"
           />
           <Button text="Общая информация" className="dormitory-btn" onClick={() => navigate("/maininfo")}/>
-          <Button text="Прачечная" className="dormitory-btn"/>
+          <Button text="Прачечная" className="dormitory-btn" onClick={() => navigate("/laundry")}/>
           <Button text="Учебная комната" className="dormitory-btn" onClick={() => navigate("/studyroom")}/>
           <Button text="Оплата общежития" className="dormitory-btn"/>
           <Button text="Оплата парковки" className="dormitory-btn"/>

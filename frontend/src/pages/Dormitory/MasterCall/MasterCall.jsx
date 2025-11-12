@@ -35,14 +35,10 @@ function MasterCall() {
       setOtherText("");
       return;
     }
-
-    // если нажали обычный пункт, а "Другое" выбрано → убираем "Другое"
     if (selectedIssues.includes("Другое")) {
       setSelectedIssues([issue]);
       return;
     }
-
-    // обычный toggle
     if (selectedIssues.includes(issue)) {
       setSelectedIssues(selectedIssues.filter((i) => i !== issue));
     } else {
@@ -83,7 +79,7 @@ function MasterCall() {
         <MainContent>
           <HeaderNav
             text="Общежитие"
-            backTo="/mainpage"
+            backTo="/dormitory"
             textColor="#000000ff"
             iconColor="#000000ff"
           />

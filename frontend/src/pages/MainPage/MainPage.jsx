@@ -25,7 +25,7 @@ function MainPage() {
             onClick={() => navigate("/university")}
           />
           <Button text="Общежитие" className="mp-btn" onClick={() => navigate("/dormitory")}/>
-          <Button text="Внеучебная деятельность" className="mp-btn" />
+          <Button text="Внеучебная деятельность" className="mp-btn" onClick={() => navigate("/extraactivities")} />
 
           <h2 className="main-content-title">Актуальные мероприятия</h2>
           <div className="main-content-rectangle">

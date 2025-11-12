@@ -5,9 +5,9 @@ import Header from "../../../../components/Header/Header";
 import MainContent from "../../../../components/MainContent/MainContent";
 import Footer from "../../../../components/Footer/Footer";
 import Button from "../../../../components/Button/Button";
-import "./Washing.css";
+import "./Dryer.css";
 
-function Washing() {
+function Dryer() {
   const navigate = useNavigate();
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -24,17 +24,17 @@ function Washing() {
       <div className="main-content-wrapper">
         <MainContent>
           <HeaderNav
-            text="Стирка"
+            text="Сушка"
             backTo="/laundry"
             textColor="#000000ff"
             iconColor="#000000ff"
           />
 
-          <div className="washing-container">
-            <h2 className="washing-title">Выбор даты:</h2>
+          <div className="dryer-container">
+            <h2 className="dryer-title">Выбор даты:</h2>
             <input
               type="date"
-              className="washing-input"
+              className="dryer-input"
               value={date}
               onChange={(e) => {
                 setDate(e.target.value);
@@ -44,10 +44,10 @@ function Washing() {
 
             {date && (
               <>
-                <h2 className="washing-title">Выбор времени:</h2>
+                <h2 className="dryer-title">Выбор времени:</h2>
                 <input
                   type="time"
-                  className="washing-input"
+                  className="dryer-input"
                   value={time}
                   onChange={(e) => {
                     setTime(e.target.value);
@@ -59,12 +59,12 @@ function Washing() {
 
             {date && time && (
               <>
-                <h2 className="washing-title">Номер машинки:</h2>
+                <h2 className="dryer-title">Номер сушильной машинки:</h2>
                 <input
                   type="number"
                   min="1"
-                  className="washing-input"
-                  placeholder="Введите номер машинки"
+                  className="dryer-input"
+                  placeholder="Введите номер сушильной машинки"
                   value={machine}
                   onChange={(e) => {
                     setMachine(e.target.value);
@@ -75,13 +75,12 @@ function Washing() {
             )}
 
             {date && time && machine && (
-
-            <Button text="Забронировать" onClick={handleBooking}/>
+              <Button text="Забронировать" onClick={handleBooking} />
             )}
 
             {confirmed && (
-              <p className="washing-confirmation">
-                ✅ Машинка №{machine} успешно забронирована на {date} в {time}.
+              <p className="dryer-confirmation">
+                ✅ Сушильная машинка №{machine} успешно забронирована на {date} в {time}.
               </p>
             )}
           </div>
@@ -92,4 +91,4 @@ function Washing() {
   );
 }
 
-export default Washing;
+export default Dryer;

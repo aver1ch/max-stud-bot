@@ -20,7 +20,7 @@ function Laundry() {
             iconColor="#000000ff"
           />
           <Button text="Стирка" onClick={() => navigate("/washing")}/>
-          <Button text="Сушка"/>
+          <Button text="Сушка" onClick={() => navigate("/dryer")}/>
           <Button text="Обмен белья"/>
         </MainContent>
       </div>

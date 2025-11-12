@@ -18,6 +18,7 @@ import Events from "./pages/ExtraActivities/Events/Events.jsx"
 import Sections from "./pages/ExtraActivities/Sections/Sections.jsx"
 import Laundry from "./pages/Dormitory/Laundry/Laundry.jsx"
 import Washing from "./pages/Dormitory/Laundry/Washing/Washing.jsx"
+import Dryer from "./pages/Dormitory/Laundry/Dryer/Dryer.jsx"
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/sections" element={<Sections />} />
         <Route path="/laundry" element={<Laundry />} />
         <Route path="/washing" element={<Washing />} />
+        <Route path="/dryer" element={<Dryer />} />
       </Routes>
     </Router>
   );

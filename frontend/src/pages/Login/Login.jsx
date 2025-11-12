@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import Form from "../../components/Form/Form";
 import "./Login.css";
 
 function Login() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("student");
+  const [code, setCode] = useState("");
 
   return (
     <main>
@@ -26,7 +30,40 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Введите пароль"
           />
-          <Button text="Войти" />
+          <div className="radio-wrapper">
+            <label className="radio-item">
+              <input
+                type="radio"
+                name="role"
+                value="student"
+                checked={role === "student"}
+                onChange={() => setRole("student")}
+              />
+              Я студент
+            </label>
+            <label className="radio-item">
+              <input
+                type="radio"
+                name="role"
+                value="employee"
+                checked={role === "employee"}
+                onChange={() => setRole("employee")}
+              />
+              Я сотрудник
+            </label>
+          </div>
+          {role === "employee" && (
+            <Form
+              label="Код-пароль"
+              id="code"
+              type="password"
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              placeholder="Введите код-пароль"
+            />
+          )}
+
+          <Button text="Войти" onClick={() => navigate("/mainpage")} />
         </div>
       </div>
     </main>

@@ -21,7 +21,7 @@ function Welcome() {
           <p className="welcome-desc-last">а также многое другое!</p>
           <Button
             text="Добро пожаловать"
-            onClick={() => navigate("/selectVar")}
+            onClick={() => navigate("/login")}
           />
         </div>
       </div>

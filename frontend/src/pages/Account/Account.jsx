@@ -27,9 +27,8 @@ function Account() {
           <p className="account-info">01.01.2001</p>
           <p className="account-info">ID: 123456789</p>
           <p className="account-info">ФГАОУ ВО “СПБПУ им. Петра Великого”</p>
-          <p className="account-info">
-            Институт птичьих перьев и змеиной чешуи
-          </p>
+          <p className="account-info">Институт птичьих перьев и змеиной чешуи</p>
+          <p className="account-info warnings">Выговоры: 0</p>
 
           <div className="account-rectangle">
             <p className="contact-title">Контактные данные:</p>
@@ -54,6 +53,20 @@ function Account() {
               />
             </div>
           </div>
+
+          <div className="dormitory-block">
+            <div className="dormitory-row">
+              <p className="dormitory-label">Общежитие №1</p>
+              <span className="status-badge paid">Оплачено</span>
+            </div>
+            <p className="dormitory-room">Комната №666</p>
+
+            <div className="dormitory-row">
+              <p className="dormitory-label">Парковка</p>
+              <span className="status-badge notfound">Не найдено</span>
+            </div>
+          </div>
+
           <div className="mini-blocks">
             <div className="mini-item">
               <div className="mini-rectangle">

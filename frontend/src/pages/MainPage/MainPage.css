@@ -1,16 +1,18 @@
 .mp-btn {
   animation: none;
   font-size: 17px;
-  font-weight: 500;
+  font-weight: 400;
+  min-width: 315px;
 }
 
 .promoimage {
-  max-width: 210px;
-  max-height: 310px;
-  width: auto;
-  height: auto;
-  object-fit: contain; 
+  width: 317px;
+  height: 210px;
+  object-fit: cover; /* Заполняет область, обрезая лишнее без искажения */
+  border-radius: 10px; /* можно убрать, если не нужно скругление */
+  display: block;
 }
+
 
 .calendar-container {
   display: flex;

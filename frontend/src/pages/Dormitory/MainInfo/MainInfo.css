@@ -73,16 +73,15 @@
 
 .eat-block {
   width: 100%;
-  max-width: 402px;
-  background-color: #d9d9d9;
-  padding: 15px 20px;
+  background-color: #274253;
+  padding: 15px 42px;
   margin-bottom: 5px;
 }
 
 .eat-text {
   font-size: 15px;
   font-weight: 400;
-  color: #000;
+  color: #ffffff;
   margin-bottom: 5px;
 }
 

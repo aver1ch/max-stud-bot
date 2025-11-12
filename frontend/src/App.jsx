@@ -19,6 +19,7 @@ import Sections from "./pages/ExtraActivities/Sections/Sections.jsx"
 import Laundry from "./pages/Dormitory/Laundry/Laundry.jsx"
 import Washing from "./pages/Dormitory/Laundry/Washing/Washing.jsx"
 import Dryer from "./pages/Dormitory/Laundry/Dryer/Dryer.jsx"
+import ChangeOfLinen from "./pages/Dormitory/Laundry/ChangeOfLinen/ChangeOfLinen.jsx";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path="/laundry" element={<Laundry />} />
         <Route path="/washing" element={<Washing />} />
         <Route path="/dryer" element={<Dryer />} />
+        <Route path="/cof" element={<ChangeOfLinen />} />
       </Routes>
     </Router>
   );

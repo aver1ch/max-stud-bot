@@ -14,9 +14,9 @@ function Header() {
               className="header-profile-logo"
             />
           </span>
-          Владимир
+          Иван
         </Link>
-        <img src="./notify.svg" alt="notify" className="header-notify" />
+        <img src="./notify2.svg" alt="notify" className="header-notify" />
       </div>
     </header>
   );

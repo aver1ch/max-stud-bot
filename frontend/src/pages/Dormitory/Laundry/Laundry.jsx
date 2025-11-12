@@ -21,7 +21,7 @@ function Laundry() {
           />
           <Button text="Стирка" onClick={() => navigate("/washing")}/>
           <Button text="Сушка" onClick={() => navigate("/dryer")}/>
-          <Button text="Обмен белья"/>
+          <Button text="Обмен белья" onClick={() => navigate("/cof")}/>
         </MainContent>
       </div>
       <Footer />

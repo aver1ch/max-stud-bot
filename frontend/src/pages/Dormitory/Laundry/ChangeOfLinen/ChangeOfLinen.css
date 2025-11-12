@@ -1,0 +1,102 @@
+.linen-title {
+  color: #274253;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+  max-width: 360px;
+  margin: 20px auto 10px;
+}
+
+.linen-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 10px auto 0px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.linen-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.linen-checkbox {
+  display: none;
+}
+
+.custom-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #274253;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.linen-checkbox:checked + .custom-circle::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: #274253;
+  border-radius: 50%;
+}
+
+.linen-label-text {
+  color: #274253;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.linen-box {
+  margin-top: 25px;
+  background-color: #305166;
+  color: white;
+  border-radius: 25px;
+  padding: 20px;
+  width: 100%;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.linen-box-title {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.linen-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.linen-list li {
+    font-weight: 300;
+}
+
+.linen-exchange-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  color: #274253;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.linen-exchange-btn:hover {
+  background-color: #f1f1f1;
+}

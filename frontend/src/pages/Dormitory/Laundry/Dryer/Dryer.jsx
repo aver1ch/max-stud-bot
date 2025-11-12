@@ -13,10 +13,62 @@ function Dryer() {
   const [time, setTime] = useState("");
   const [machine, setMachine] = useState("");
   const [confirmed, setConfirmed] = useState(false);
+  const [error, setError] = useState("");
+
+  const [dryerQueue, setDryerQueue] = useState({
+    1: [
+      { name: "Иванов Иван", date: "2025-11-12", time: "11:00" },
+      { name: "Петров Петр", date: "2025-11-12", time: "13:00" },
+      { name: "Сидоров Алексей", date: "2025-11-13", time: "10:00" },
+    ],
+    2: [
+      { name: "Андреева Мария", date: "2025-11-12", time: "09:30" },
+      { name: "Смирнов Кирилл", date: "2025-11-13", time: "12:00" },
+    ],
+    3: [
+      { name: "Егорова Ксения", date: "2025-11-12", time: "08:30" },
+      { name: "Федоров Иван", date: "2025-11-14", time: "11:00" },
+    ],
+  });
 
   const handleBooking = () => {
+    if (!machine) return;
+
+    const queue = dryerQueue[machine] || [];
+
+    // проверка на конфликт по дате и времени
+    const isConflict = queue.some(
+      (entry) => entry.date === date && entry.time === time
+    );
+
+    if (isConflict) {
+      setError("На это время уже есть запись. Выберите другое время.");
+      setConfirmed(false);
+      return;
+    }
+
+    setDryerQueue((prev) => ({
+      ...prev,
+      [machine]: [
+        ...(prev[machine] || []),
+        { name: "Вы", date, time },
+      ],
+    }));
+
     setConfirmed(true);
+    setError("");
   };
+
+  const selectedQueue =
+    machine && date
+      ? (dryerQueue[machine] || [])
+          .filter((entry) => entry.date === date)
+          .sort((a, b) => {
+            const [aH, aM] = a.time.split(":").map(Number);
+            const [bH, bM] = b.time.split(":").map(Number);
+            return aH * 60 + aM - (bH * 60 + bM);
+          })
+      : [];
 
   return (
     <div className="app-container">
@@ -39,6 +91,7 @@ function Dryer() {
               onChange={(e) => {
                 setDate(e.target.value);
                 setConfirmed(false);
+                setError("");
               }}
             />
 
@@ -52,6 +105,7 @@ function Dryer() {
                   onChange={(e) => {
                     setTime(e.target.value);
                     setConfirmed(false);
+                    setError("");
                   }}
                 />
               </>
@@ -69,6 +123,7 @@ function Dryer() {
                   onChange={(e) => {
                     setMachine(e.target.value);
                     setConfirmed(false);
+                    setError("");
                   }}
                 />
               </>
@@ -82,6 +137,32 @@ function Dryer() {
               <p className="dryer-confirmation">
                 ✅ Сушильная машинка №{machine} успешно забронирована на {date} в {time}.
               </p>
+            )}
+
+            {error && (
+              <p className="dryer-error">
+                ⚠️ {error}
+              </p>
+            )}
+
+            {machine && date && (
+              <div className="queue-container">
+                <h3 className="queue-title">
+                  Очередь на сушильную машинку №{machine}:
+                </h3>
+                {selectedQueue.length > 0 ? (
+                  <ul className="queue-list">
+                    {selectedQueue.map((entry, index) => (
+                      <li key={index} className="queue-item">
+                        <p className="queue-name">{entry.name}</p>
+                        <p className="queue-details">{entry.time}</p>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="queue-empty">Очереди нет</p>
+                )}
+              </div>
             )}
           </div>
         </MainContent>

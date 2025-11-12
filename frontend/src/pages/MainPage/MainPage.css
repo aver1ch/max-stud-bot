@@ -1,15 +1,15 @@
 .mp-btn {
   animation: none;
   font-size: 17px;
-  font-weight: 400;
-  min-width: 315px;
+  font-weight: 600;
+  min-width: 330px;
 }
 
 .promoimage {
   width: 317px;
   height: 210px;
-  object-fit: cover; /* Заполняет область, обрезая лишнее без искажения */
-  border-radius: 10px; /* можно убрать, если не нужно скругление */
+  object-fit: cover;
+  border-radius: 10px;
   display: block;
 }
 

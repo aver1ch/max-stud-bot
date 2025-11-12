@@ -4,7 +4,7 @@
   align-items: center;
   padding: 0 25px;
   width: 402px;
-  margin: 20px auto;
+  margin: 0 auto;
   background-color: white;
   border-radius: 15px;
 }
@@ -13,7 +13,6 @@
   color: #274253;
   align-self: flex-start;
   padding: 0 20px;
-  margin-top: 15px;
   margin-bottom: 5px;
   font-size: 16px;
   font-weight: 500;
@@ -21,6 +20,7 @@
 
 .washing-input {
   width: 320px;
+  height: 40px;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -39,6 +39,67 @@
 .washing-confirmation {
   margin-top: 15px;
   color: #2e7d32;
+  font-size: 15px;
+  text-align: center;
+  max-width: 320px;
+}
+
+.queue-container {
+  margin-top: 25px;
+  width: 100%;
+  max-width: 350px;
+  background-color: #f0f5f7;
+  border-radius: 15px;
+  padding: 15px 20px;
+}
+
+.queue-title {
+  color: #274253;
+  padding-left: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.queue-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.queue-item {
+  background-color: white;
+  border: 1px solid #cfd8dc;
+  border-radius: 10px;
+  padding: 10px 12px;
+  text-align: left;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.queue-name {
+  font-weight: 500;
+  color: #274253;
+}
+
+.queue-details {
+  font-size: 14px;
+  color: #546e7a;
+}
+
+.queue-empty {
+  color: #9e9e9e;
+  font-size: 14px;
+  text-align: left;
+  padding-left: 5px;
+  margin-top: 10px;
+}
+
+.washing-error {
+  margin-top: 10px;
+  color: #d32f2f;
   font-size: 15px;
   text-align: center;
   max-width: 320px;

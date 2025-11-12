@@ -20,7 +20,7 @@ a {
 
 .header-profile {
   display: flex;
-  align-items: center; /* чтобы текст и иконка профиля были на одном уровне */
+  align-items: center;
   text-decoration: none;
   color: black;
   background-color: white;
@@ -36,6 +36,6 @@ a {
 }
 
 .header-notify {
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
 }

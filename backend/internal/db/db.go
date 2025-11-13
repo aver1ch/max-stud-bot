@@ -2,28 +2,35 @@ package db
 
 import (
 	"context"
-	"log"
 	"log/slog"
+	"os"
 	"time"
 
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func ConnectMongo() *mongo.Client {
+func ConnectPostgres() *pgxpool.Pool {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	slog.Info("Try to connect to mongo")
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
+
+	dsn := os.Getenv("DATABASE_URL")
+	if dsn == "" {
+		dsn = "postgres://admin:1234@localhost:5432/maxstud?sslmode=disable"
+	}
+
+	slog.Info("Connecting to Postgres", "dsn", dsn)
+
+	dbpool, err := pgxpool.New(ctx, dsn)
 	if err != nil {
-		log.Fatalf("Mongo connection error: %v", err)
+		slog.Error("Failed to create connection pool", "error", err)
+		panic(err)
 	}
 
-	slog.Info("Check the connection")
-	if err := client.Ping(ctx, nil); err != nil {
-		log.Fatalf("Mongo ping error: %v", err)
+	if err := dbpool.Ping(ctx); err != nil {
+		slog.Error("Failed to ping database", "error", err)
+		panic(err)
 	}
 
-	slog.Info("Connected to MongoDB")
-	return client
+	slog.Info("Connected to PostgreSQL")
+	return dbpool
 }

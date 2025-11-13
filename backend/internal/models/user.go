@@ -1,10 +1,11 @@
 package models
 
 type User struct {
-	Login    string `bson:"id"`
-	Password string `bson:"login"`
+	ID       int    `json:"id"`
+	Login    string `json:"login"`
+	Password string `json:"password"`
 }
 
-func NewUser(login string, password string) *User {
+func NewUser(login, password string) *User {
 	return &User{Login: login, Password: password}
 }

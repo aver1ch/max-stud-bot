@@ -29,6 +29,6 @@ func (s *AuthService) Login(req models.LoginRequest) (bool, error) {
 	return true, nil
 }
 
-func checkPassword(password string, login string) bool {
-	return password == login
+func checkPassword(passwordDB string, passwordReq string) bool {
+	return passwordDB == passwordReq // TODO: add password check
 }

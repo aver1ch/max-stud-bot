@@ -20,14 +20,8 @@ function ExtraActivities() {
             textColor="#000000ff"
             iconColor="#000000ff"
           />
-            <Button text="Мероприятия" className="mp-btn" onClick={() => navigate("/events")}/>
-            <Button
-              text="Секции"
-              className="mp-btn"
-              onClick={() => navigate("/sections")}
-            />
-            <Button text="Спорт" className="mp-btn" />
-            <Button text="Точка кипения" className="mp-btn" />
+          <Button text="Мероприятия" onClick={() => navigate("/events")} />
+          <Button text="Секции" onClick={() => navigate("/sections")} />
         </MainContent>
       </div>
       <Footer />

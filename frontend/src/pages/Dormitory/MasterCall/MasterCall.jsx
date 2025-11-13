@@ -70,7 +70,7 @@ function MasterCall() {
     console.log("Комната:", data.room);
     console.log("===== END =====");
 
-    alert("Мастер вызван!");
+    alert("Мастер вызван! Чекни консоль");
   };
   return (
     <div className="app-container">

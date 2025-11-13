@@ -42,12 +42,17 @@
 .medium-circle {
   position: relative;
   bottom: 20px;
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
 }
 
 .medium-circle img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.small-circle img.message {
+  width: 30px;
+  height: 30px;
 }

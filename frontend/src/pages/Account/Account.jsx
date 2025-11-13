@@ -68,16 +68,6 @@ function Account() {
           </div>
 
           <div className="mini-blocks">
-            <div className="mini-item">
-              <div className="mini-rectangle">
-                <img
-                  src="./calendar.svg"
-                  className="mini-icon"
-                  alt="calendar"
-                />
-              </div>
-              <p className="mini-label">Календарь</p>
-            </div>
 
             <div className="mini-item">
               <div className="mini-rectangle">

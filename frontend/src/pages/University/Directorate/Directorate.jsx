@@ -24,8 +24,8 @@ function Directorate() {
                 <p className="d-name">Петров Петр</p>
                 <p className="d-name">Петрович</p>
                 <p className="d-section-title">Занимаемые должности:</p>
-                <p className="d-info">директор института</p>
-                <p className="d-info">профессор</p>
+                <p className="d-info">·     директор института</p>
+                <p className="d-info">·     профессор</p>
                 <p className="d-section-title">Ученые степени:</p>
                 <p className="d-info">доктор магических наук</p>
                 <p className="d-section-title">Ученое звание:</p>

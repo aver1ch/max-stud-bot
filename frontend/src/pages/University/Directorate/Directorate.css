@@ -1,33 +1,31 @@
-/* Общий стиль всех боксов */
 .directorate-box {
   width: calc(100% - 30px);
   max-width: 402px;
   padding: 40px 15px;
-  border-radius: 15px;
+  border-radius: 25px;
   margin-top: 20px;
 }
 
 .primary-box {
   display: flex;
   flex-direction: column;
-  background-color: rgba(111, 140, 158, 1);
+  background-color: #bdc6cb;
 }
 
 .secondary-box {
-  background-color: #59707e;
+  background-color: #bdc6cb;
 }
 
-/* Квадрат под фото */
 .directorate-photo {
   width: 90px;
-  height: 115px;
+  height: 116px;
   border-radius: 10px;
   background-color: white;
 }
 
 .directorate-content {
   display: flex;
-  justify-content: center;
+  padding: 0 18px;
   gap: 15px;
 }
 
@@ -38,25 +36,24 @@
   gap: 4px;
 }
 
-
-.white-text p {
-  color: white !important;
-}
-
 .d-name {
-  font-size: 16px;
-  font-weight: 600;
+  color: #1f3542;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .d-section-title {
-  margin-top: 8px;
-  font-size: 14px;
-  font-weight: 600;
+  color: #1f3542;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 5px;
 }
 
 .d-info {
-  font-size: 14px;
-  font-weight: 400;
+  color: #274253;
+  font-size: 13px;
+  font-weight: 300;
+  margin-bottom: 5px;
 }
 
 .directorate-btn-wrapper {

@@ -16,29 +16,8 @@
 .dorm-scheme {
   width: 312px;
   height: 196px;
-  border-radius: 15px;
   object-fit: cover;
   margin-bottom: 20px;
-}
-
-.floor-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.floor-title {
-  font-size: 17px;
-  font-weight: 600;
-  color: #274253;
-  margin-left: 30px;
-}
-
-.floor-icon {
-  width: 15px;
-  height: 15px;
 }
 
 .floor-grid {
@@ -120,9 +99,9 @@
 }
 
 .transport-icon {
-  width: 55px;
-  height: 55px;
-  opacity: 0.3;
+  width: 70px;
+  height: 70px;
+  opacity: 0.6;
 }
 
 .transport-number {
@@ -138,13 +117,17 @@
 .floor-select-wrapper {
   width: 100%;
   max-width: 400px;
-  margin: 0 auto 20px auto;
-  text-align: center;
+  padding: 0 25px;
+  text-align: left; 
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.floor-select-wrapper::after{
+.floor-select-wrapper::after {
   content: "✓";
   color: #274253;
+  font-size: 18px;
 }
 
 .floor-select {
@@ -155,6 +138,5 @@
   color: #274253;
   cursor: pointer;
   text-align: center;
-  appearance: none; 
+  appearance: none;
 }
-

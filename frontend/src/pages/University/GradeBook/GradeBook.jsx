@@ -28,43 +28,49 @@ function GradeBook() {
               </div>
             </div>
             <div className="field">
-              <label>Семестр:</label>
+              <label className="subject-label">Семестр:</label>
               <select className="field-select">
                 {[...Array(8)].map((_, i) => (
-                  <option key={i} value={i + 1}>{i + 1}</option>
+                  <option key={i} value={i + 1}>
+                    {i + 1}
+                  </option>
                 ))}
               </select>
             </div>
             <div className="field">
-              <label>Преподаватель:</label>
+              <label className="subject-label">Преподаватель:</label>
               <select className="field-select">
                 <option>Семен Семенович Семенов</option>
               </select>
             </div>
             <div className="field">
-              <label>Тип контроля:</label>
+              <label className="subject-label">Тип контроля:</label>
               <select className="field-select">
                 <option>Все</option>
               </select>
             </div>
             <div className="field">
-              <label>Оценка:</label>
+              <label className="subject-label">Оценка:</label>
               <select className="field-select">
                 <option>Все</option>
               </select>
             </div>
-            <div className="subject-block">
-              <p className="subject-name">Физика</p>
-              <p className="subject-grade">3</p>
-            </div>
-            <div className="subject-block">
-              <p className="subject-name">Высшая математика</p>
-              <p className="subject-grade">5</p>
-            </div>
-            <div className="subject-block">
-              <p className="subject-name">Элетротехника</p>
-              <p className="subject-grade">4</p>
-            </div>
+          </div>
+          <div className="subject-block">
+            <p className="subject-name">Физика</p>
+            <p className="subject-grade">3</p>
+          </div>
+          <div className="subject-block">
+            <p className="subject-name">Высшая математика</p>
+            <p className="subject-grade">5</p>
+          </div>
+          <div className="subject-block">
+            <p className="subject-name">Элетротехника</p>
+            <p className="subject-grade">4</p>
+          </div>
+          <div className="subject-block">
+            <p className="subject-name">Элетротехника</p>
+            <p className="subject-grade">4</p>
           </div>
         </MainContent>
       </div>

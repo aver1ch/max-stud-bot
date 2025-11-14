@@ -1,24 +1,25 @@
 .schedule-date {
   text-align: center;
   font-size: 18px;
-  font-weight: 600;
-  margin: 20px 0;
+  font-weight: 500;
   color: #000;
 }
 
 .schedule-block {
   width: 100%;
   max-width: 430px;
-  background: #d9d9d9;
-  padding: 20px;
-  margin-top: 5px;
+  background: #dee2e5;
+  border-radius: 25px;
+  padding: 0 25px;
+  padding-top: 10px;
+  margin-top: 8px;
 }
 
 .schedule-day {
   font-size: 17px;
   font-weight: 600;
-  margin-bottom: 15px;
-  color: #000;
+  margin-bottom: 8px;
+  color: #1f3542;
 }
 
 .schedule-item {
@@ -26,18 +27,21 @@
 }
 
 .time {
-  font-weight: 600;
-  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  color: #89959c;
 }
 
 .lesson {
   margin-top: 3px;
+  font-size: 14px;
   font-weight: 500;
-  color: #333;
+  color: #4e606b;
 }
 
 .teacher {
   margin-top: 2px;
   font-weight: 400;
+  font-size: 14px;
   color: #444;
 }

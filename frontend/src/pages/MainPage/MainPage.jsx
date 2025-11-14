@@ -36,31 +36,23 @@ function MainPage() {
       <Header />
       <div className="main-content-wrapper">
         <MainContent>
-          <HeaderNav
-            text="Главная"
-            backTo="/"
-            textColor="#000000ff"
-            iconColor="#000000ff"
-          />
-
-          <Button
-            text="Университет"
-            className="mp-btn"
-            onClick={() => navigate("/university")}
-          />
-          <Button
-            text="Общежитие"
-            className="mp-btn"
-            onClick={() => navigate("/dormitory")}
-          />
-          <Button
-            text="Внеучебная деятельность"
-            className="mp-btn"
-            onClick={() => navigate("/extraactivities")}
-          />
-
-          <h2 className="main-content-title">Мои бронирования</h2>
-
+          <div className="btn-wrapper">
+            <Button
+              text="Университет"
+              className="mp-btn"
+              onClick={() => navigate("/university")}
+            />
+            <Button
+              text="Общежитие"
+              className="mp-btn"
+              onClick={() => navigate("/dormitory")}
+            />
+            <Button
+              text="Внеучебная деятельность"
+              className="mp-btn"
+              onClick={() => navigate("/extraactivities")}
+            />
+          </div>
           <div className="calendar-container">
             <Calendar
               onChange={(date) => {

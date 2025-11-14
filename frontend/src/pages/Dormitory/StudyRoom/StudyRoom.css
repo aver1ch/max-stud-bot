@@ -37,10 +37,8 @@
 
 
 .dorm-booking-box {
-  background-color: #6f8c9e;
+  background-color: #8b9ba5;
   border-radius: 25px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
   padding: 20px 15px;
   max-width: 100%;
   margin: 0 auto;
@@ -52,9 +50,10 @@
 }
 
 .booking-info-text {
+  
   text-align: center;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 600;
 }
 
 .booking-fields {

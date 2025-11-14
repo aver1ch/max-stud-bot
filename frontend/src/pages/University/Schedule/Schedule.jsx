@@ -17,11 +17,7 @@ function Schedule() {
             textColor="#000000ff"
             iconColor="#000000ff"
           />
-
-          {/* Дата по центру */}
           <h2 className="schedule-date">01.01 – 08.01</h2>
-
-          {/* Три одинаковых блока */}
           <div className="schedule-block">
             <p className="schedule-day">Понедельник</p>
 

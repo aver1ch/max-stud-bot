@@ -3,24 +3,11 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 
 function Header() {
-  const navigate = useNavigate();
-  const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    } else {
-      navigate("/login");
-    }
-  }, [navigate]);
-
-  if (!user) {
-    return <p>Загрузка данных...</p>;
-  }
+  const user = localStorage.getItem("user");
 
   const parts = user.fullName.split(" ");
-  
+
   return (
     <header>
       <div className="header-container">

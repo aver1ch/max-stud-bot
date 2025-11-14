@@ -19,7 +19,6 @@ function Header() {
               className="header-profile-logo"
             />
           </span>
-          {parts[0]}
         </Link>
         <img src="./notify2.svg" alt="notify" className="header-notify" />
       </div>

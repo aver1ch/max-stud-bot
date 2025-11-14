@@ -10,14 +10,14 @@
 
   .form-field {
     display: flex;
-    flex-direction: column;  /* лейбл над полем */
-    margin-bottom: 20px;     /* отступ между полями */
+    flex-direction: column;
+    margin-bottom: 20px;
   }
 
   .form-label {
-    color: white; /* здесь нужный тебе цвет */
+    color: white;
     font-weight: 600;
-    margin-bottom: 8px; /* чтобы был отступ от поля */
+    margin-bottom: 8px;
     display: block;
   }
   

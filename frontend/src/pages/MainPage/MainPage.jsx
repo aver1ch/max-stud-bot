@@ -5,7 +5,6 @@ import Footer from "../../components/Footer/Footer";
 import Button from "../../components/Button/Button";
 import "./MainPage.css";
 import { useNavigate } from "react-router-dom";
-import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 

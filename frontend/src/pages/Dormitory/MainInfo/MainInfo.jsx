@@ -57,11 +57,11 @@ function MainInfo() {
                 value={selectedFloor}
                 onChange={(e) => setSelectedFloor(Number(e.target.value))}
               >
-                <option value={1}>1 этаж</option>
-                <option value={2}>2 этаж</option>
-                <option value={3}>3 этаж</option>
-                <option value={4}>4 этаж</option>
-                <option value={5}>5 этаж</option>
+                <option value={1}>1 этаж:</option>
+                <option value={2}>2 этаж:</option>
+                <option value={3}>3 этаж:</option>
+                <option value={4}>4 этаж:</option>
+                <option value={5}>5 этаж:</option>
               </select>
             </div>
 

@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import "../../App.css";
-//import "./SelectVar.css"
 import Button from "../../components/Button/Button";
 
 function SelectVar() {

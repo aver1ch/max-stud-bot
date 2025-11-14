@@ -2,11 +2,10 @@ import React from "react";
 import "./Footer.css";
 
 function Footer() {
-  // Функция прокрутки страницы вверх
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // плавная прокрутка
+      behavior: "smooth",
     });
   };
 

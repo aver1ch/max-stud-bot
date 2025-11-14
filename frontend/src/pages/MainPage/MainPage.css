@@ -101,7 +101,7 @@
 }
 
 .react-calendar__tile {
-  position: relative; /* важно для абсолютной точки */
+  position: relative;
 }
 
 .booking-dot {

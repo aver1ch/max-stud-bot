@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import HeaderNav from "../../../../components/HeaderNav/HeaderNav";
 import Header from "../../../../components/Header/Header";
 import MainContent from "../../../../components/MainContent/MainContent";
@@ -8,7 +7,6 @@ import Button from "../../../../components/Button/Button";
 import "./ChangeOfLinen.css";
 
 function ChangeOfLinen() {
-  const navigate = useNavigate();
   const [selectedItems, setSelectedItems] = useState([]);
   const [showBox, setShowBox] = useState(false);
 

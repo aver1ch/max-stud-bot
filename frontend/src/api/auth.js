@@ -1,9 +1,13 @@
 // src/api/auth.js
-const API_BASE_URL = "https://your-backend.com/api"; // поменяй на реальный адрес
+const API_BASE_URL = "http://localhost:8080";
 
-export async function registerUser(data) {
+export async function loginRequest(data) {
   try {
-    const response = await fetch(`${API_BASE_URL}/register`, {
+    if (data.role !== "employee") {
+      data.codePassword = null;
+    }
+
+    const response = await fetch(`${API_BASE_URL}/api/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -13,7 +17,7 @@ export async function registerUser(data) {
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.message || "Ошибка регистрации");
+      throw new Error(errorData.message || "Ошибка авторизации");
     }
 
     return await response.json();

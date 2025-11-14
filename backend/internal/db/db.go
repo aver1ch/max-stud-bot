@@ -10,9 +10,6 @@ import (
 )
 
 func ConnectPostgres() *pgxpool.Pool {
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
-
 	dsn := os.Getenv("DATABASE_URL")
 	if dsn == "" {
 		dsn = "postgres://admin:1234@localhost:5432/maxstud?sslmode=disable"
@@ -20,17 +17,33 @@ func ConnectPostgres() *pgxpool.Pool {
 
 	slog.Info("Connecting to Postgres", "dsn", dsn)
 
-	dbpool, err := pgxpool.New(ctx, dsn)
-	if err != nil {
-		slog.Error("Failed to create connection pool", "error", err)
-		panic(err)
+	var dbpool *pgxpool.Pool
+	var err error
+
+	// Таймаут на подключение
+	timeout := 30 * time.Second
+	deadline := time.Now().Add(timeout)
+
+	for time.Now().Before(deadline) {
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+
+		dbpool, err = pgxpool.New(ctx, dsn)
+		if err == nil {
+			err = dbpool.Ping(ctx)
+		}
+
+		cancel()
+
+		if err == nil {
+			slog.Info("Connected to PostgreSQL")
+			return dbpool
+		}
+
+		slog.Info("Postgres not ready yet, retrying in 2s...", "error", err)
+		time.Sleep(2 * time.Second)
 	}
 
-	if err := dbpool.Ping(ctx); err != nil {
-		slog.Error("Failed to ping database", "error", err)
-		panic(err)
-	}
-
-	slog.Info("Connected to PostgreSQL")
-	return dbpool
+	// Если не удалось подключиться за timeout
+	slog.Error("Failed to connect to Postgres after retries", "error", err)
+	panic(err)
 }

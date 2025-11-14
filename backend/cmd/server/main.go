@@ -52,12 +52,12 @@ func main() {
 	dbpool := db.ConnectPostgres()
 	defer dbpool.Close()
 
-	err := db.RunSQLFile(dbpool, "migrations/init.sql")
+	err := db.RunSQLFile(dbpool, "../backend/internal/db/init.sql")
 	if err != nil {
 		slog.Error("Failed to run init.sql", "error", err)
 	}
 
-	distDir := "../frontend/dist"
+	distDir := "./dist"
 	fs := http.FileServer(http.Dir(distDir))
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -70,8 +70,10 @@ func main() {
 		fs.ServeHTTP(w, r)
 	})
 
-	usersRepo := repository.NewUserRepository(dbpool)
-	authService := services.NewAuthService(usersRepo)
+	studentsRepo := repository.NewStudentRepository(dbpool)
+	employeesRepo := repository.NewEmployeeRepository(dbpool)
+
+	authService := services.NewAuthService(studentsRepo, employeesRepo)
 	authHandler := handlers.NewAuthHandler(authService)
 
 	http.HandleFunc("/api/login", authHandler.LoginHandler)

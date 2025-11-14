@@ -83,7 +83,7 @@ function Account() {
           <div className="dormitory-block">
             <div className="dormitory-row">
               <p className="dormitory-label">Общежитие №{user.dormId}</p>
-              <span className="status-badge paid">
+              <span className={`status-badge ${user.paymentStatusDorm ? "paid" : "notpaid"}`}>
                 {user.paymentStatusDorm ? "Оплачено" : "Не оплачено"}
               </span>
             </div>
@@ -91,10 +91,11 @@ function Account() {
 
             <div className="dormitory-row">
               <p className="dormitory-label">Парковка</p>
-              <span className={`status-badge ${user.paymentStatusDorm ? "paid" : "notpaid"}`}>
-                {user.paymentStatusDorm ? "Оплачено" : "Не оплачено"}
+              <span className="status-badge notfound">
+                {user.parking ? "Есть" : "Не найдено"}
               </span>
             </div>
+
             <div className="access-blocks">
               <div className="access-item-wrapper">
                 <div className="access-item">Пропуск</div>

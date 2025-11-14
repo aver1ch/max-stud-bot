@@ -87,14 +87,14 @@ function MainInfo() {
               <p className="eat-text">5 минут пешком</p>
             </div>
             <div className="eat-block">
-              <p className="eat-text">Солнечный день</p>
-              <p className="eat-text">Лесной пр-т 65к1, вход со двора</p>
-              <p className="eat-text">5 минут пешком</p>
+              <p className="eat-text">ТЦ Европолис</p>
+              <p className="eat-text">Кантемировский пр-т 52</p>
+              <p className="eat-text">10 минут пешком</p>
             </div>
             <div className="eat-block">
-              <p className="eat-text">Солнечный день</p>
-              <p className="eat-text">Лесной пр-т 65к1, вход со двора</p>
-              <p className="eat-text">5 минут пешком</p>
+              <p className="eat-text">Kebab station</p>
+              <p className="eat-text">Кантемировский пр-т 812, вход со улицы</p>
+              <p className="eat-text">7 минут пешком</p>
             </div>
             <h2 className="section-title">Транспорт</h2>
             <div className="transport-grid">

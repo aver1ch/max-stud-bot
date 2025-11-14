@@ -18,31 +18,40 @@ func NewAuthService(s *repository.StudentRepository, e *repository.EmployeeRepos
 	}
 }
 
-func (s *AuthService) Login(req models.LoginRequest) (bool, error) {
+func (s *AuthService) Login(req models.LoginRequest) (*models.AuthResponse, error) {
 	switch req.Role {
 	case "student":
 		student, err := s.repoStudents.FindByLogin(req.Login)
 		if err != nil {
-			return false, errs.ErrUnkownUser
+			return nil, errs.ErrUnkownUser
 		}
 		if !checkPassword(student.Password, req.Password) {
-			return false, errs.ErrUnkownPassword
+			return nil, errs.ErrUnkownPassword
 		}
+		return &models.AuthResponse{
+			IsAuth: true,
+			User:   student,
+		}, nil
+
 	case "employee":
 		if req.CodePassword == nil {
-			return false, errs.ErrInvalidCredentials
+			return nil, errs.ErrInvalidCredentials
 		}
 		employee, err := s.repoEmployers.FindByLoginAndCodePassword(req.Login, *req.CodePassword)
 		if err != nil {
-			return false, errs.ErrUnkownUser
+			return nil, errs.ErrUnkownUser
 		}
 		if !checkPassword(employee.Password, req.Password) {
-			return false, errs.ErrUnkownPassword
+			return nil, errs.ErrUnkownPassword
 		}
+		return &models.AuthResponse{
+			IsAuth: true,
+			User:   employee,
+		}, nil
+
 	default:
-		return false, errs.ErrInvalidCredentials
+		return nil, errs.ErrInvalidCredentials
 	}
-	return true, nil
 }
 
 func checkPassword(passwordDB string, passwordReq string) bool {

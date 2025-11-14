@@ -28,14 +28,12 @@ func (h *AuthHandler) LoginHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	isSuccess, err := h.service.Login(credentials)
+	resp, err := h.service.Login(credentials)
 	if err != nil {
 		slog.Error("Login error", "error", err)
 		http.Error(w, err.Error(), http.StatusUnauthorized)
 		return
 	}
-
-	resp := models.AuthResponse{IsAuth: isSuccess}
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(resp)

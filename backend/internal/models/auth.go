@@ -8,5 +8,6 @@ type LoginRequest struct {
 }
 
 type AuthResponse struct {
-	IsAuth bool `json:"isAuth"`
+	IsAuth bool        `json:"isAuth"`
+	User   interface{} `json:"user,omitempty"`
 }

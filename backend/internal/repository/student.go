@@ -17,14 +17,27 @@ func NewStudentRepository(db *pgxpool.Pool) *StudentRepository {
 	}
 }
 
-// Поиск пользователя по логину
 func (r *StudentRepository) FindByLogin(login string) (*models.Student, error) {
-	var user models.Student
-	query := `SELECT id, login, password FROM students WHERE login = $1`
+	var student models.Student
+	query := `
+		SELECT id, login, password, group_number, gradebook_number, dorm_id, position, linen, master_call
+		FROM students
+		WHERE login = $1
+	`
 	row := r.db.QueryRow(context.Background(), query, login)
-	err := row.Scan(&user.ID, &user.Login, &user.Password)
+	err := row.Scan(
+		&student.ID,
+		&student.Login,
+		&student.Password,
+		&student.GroupNumber,
+		&student.GradebookNumber,
+		&student.DormID,
+		&student.Position,
+		&student.Linen,
+		&student.MasterCall,
+	)
 	if err != nil {
 		return nil, err
 	}
-	return &user, nil
+	return &student, nil
 }

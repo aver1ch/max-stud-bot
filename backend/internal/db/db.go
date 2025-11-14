@@ -40,10 +40,9 @@ func ConnectPostgres() *pgxpool.Pool {
 		}
 
 		slog.Info("Postgres not ready yet, retrying in 2s...", "error", err)
-		time.Sleep(2 * time.Second)
+		time.Sleep(10 * time.Second)
 	}
 
-	// Если не удалось подключиться за timeout
 	slog.Error("Failed to connect to Postgres after retries", "error", err)
 	panic(err)
 }

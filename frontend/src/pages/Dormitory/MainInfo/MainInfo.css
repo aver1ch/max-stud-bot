@@ -44,8 +44,8 @@
 
 .eat-title {
   color: #274253;
-  font-size: 25px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 600;
   margin-top: 30px;
   margin-bottom: 30px;
   text-align: center;
@@ -117,6 +117,7 @@
 }
 
 .floor-select-wrapper {
+  position: relative;
   width: 100%;
   max-width: 400px;
   padding: 0 25px;
@@ -130,9 +131,18 @@
 }
 
 .floor-select-wrapper::after {
-  content: "✓";
-  color: #274253;
-  font-size: 18px;
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url('./arrowdown.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 70%;
+  top: 55%;
+  transform: translateY(-50%);
+  pointer-events: none; /* чтобы не мешать клику по select */
 }
 
 .floor-select {

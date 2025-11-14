@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import HeaderNav from "../../../../components/HeaderNav/HeaderNav";
 import Header from "../../../../components/Header/Header";
 import MainContent from "../../../../components/MainContent/MainContent";
@@ -8,7 +7,6 @@ import Button from "../../../../components/Button/Button";
 import "./Washing.css";
 
 function Washing() {
-  const navigate = useNavigate();
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [machine, setMachine] = useState("");
@@ -33,7 +31,6 @@ function Washing() {
     if (!machine) return;
 
     const queue = machineQueue[machine] || [];
-    // проверяем, есть ли уже запись с таким временем и датой
     const isConflict = queue.some(
       (entry) => entry.date === date && entry.time === time
     );

@@ -20,7 +20,7 @@ function University() {
             iconColor="#000000ff"
           />
           <Button text="Расписание" onClick={() => navigate("/schedule")} className="university-btn"/>
-          <Button text="Оплата обучения" className="university-btn"/>
+          <Button text="Оплата обучения" className="university-btn nact"/>
           <Button text="Зачетная книжка" onClick={() => navigate("/gradebook")} className="university-btn" />
           <Button text="Дирекция" onClick={() => navigate("/directorate")} className="university-btn"/>
         </MainContent>

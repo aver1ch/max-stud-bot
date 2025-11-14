@@ -12,7 +12,6 @@ function GradeBook({ studentId }) {
   const [controlFilter, setControlFilter] = useState("Все");
   const [gradeFilter, setGradeFilter] = useState("Все");
 
-  // Загрузка данных с сервера
   useEffect(() => {
     async function fetchGrades() {
       try {
@@ -26,7 +25,6 @@ function GradeBook({ studentId }) {
     fetchGrades();
   }, [studentId]);
 
-  // Фильтрация
   const filteredGrades = grades.filter((g) => {
     return (
       (semesterFilter === "Все" || g.semester === Number(semesterFilter)) &&
@@ -36,7 +34,6 @@ function GradeBook({ studentId }) {
     );
   });
 
-  // Получаем уникальные значения для селектов
   const semesters = [...new Set(grades.map((g) => g.semester))].sort((a, b) => a - b);
   const teachers = ["Все", ...new Set(grades.map((g) => g.teacher))];
   const controlTypes = ["Все", ...new Set(grades.map((g) => g.control_type))];
@@ -120,8 +117,6 @@ function GradeBook({ studentId }) {
               </select>
             </div>
           </div>
-
-          {/* Список оценок */}
           {filteredGrades.map((g, idx) => (
             <div className="subject-block" key={idx}>
               <p className="subject-name">{g.subject}</p>

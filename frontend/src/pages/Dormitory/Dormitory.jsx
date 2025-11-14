@@ -22,8 +22,8 @@ function Dormitory() {
           <Button text="Общая информация" className="dormitory-btn" onClick={() => navigate("/maininfo")}/>
           <Button text="Прачечная" className="dormitory-btn" onClick={() => navigate("/laundry")}/>
           <Button text="Учебная комната" className="dormitory-btn" onClick={() => navigate("/studyroom")}/>
-          <Button text="Оплата общежития" className="dormitory-btn"/>
-          <Button text="Оплата парковки" className="dormitory-btn"/>
+          <Button text="Оплата общежития" className="dormitory-btn nact"/>
+          <Button text="Оплата парковки" className="dormitory-btn nact"/>
           <Button text="Вызов мастера" className="dormitory-btn" onClick={() => navigate("/mastercall")}/>
         </MainContent>
       </div>

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import HeaderNav from "../../../../components/HeaderNav/HeaderNav";
 import Header from "../../../../components/Header/Header";
 import MainContent from "../../../../components/MainContent/MainContent";
@@ -8,7 +7,6 @@ import Button from "../../../../components/Button/Button";
 import "./Dryer.css";
 
 function Dryer() {
-  const navigate = useNavigate();
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [machine, setMachine] = useState("");
@@ -35,8 +33,6 @@ function Dryer() {
     if (!machine) return;
 
     const queue = dryerQueue[machine] || [];
-
-    // проверка на конфликт по дате и времени
     const isConflict = queue.some(
       (entry) => entry.date === date && entry.time === time
     );

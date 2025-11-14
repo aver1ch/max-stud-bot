@@ -5,7 +5,6 @@ import Footer from "../../components/Footer/Footer";
 import Button from "../../components/Button/Button";
 import "./MainPage.css";
 import { useNavigate } from "react-router-dom";
-import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
@@ -59,15 +58,10 @@ function MainPage() {
                 setValue(date);
                 handleDateClick(date);
               }}
-              value={value}
               tileContent={({ date }) => {
                 const formatted = date.toISOString().split("T")[0];
                 const booking = bookings.find((b) => b.date === formatted);
-                return booking ? (
-                  <p className="booking-dot" title={booking.type}>
-                    ●
-                  </p>
-                ) : null;
+                return booking ? <span className="booking-dot" /> : null;
               }}
             />
           </div>

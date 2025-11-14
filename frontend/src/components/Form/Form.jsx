@@ -1,5 +1,4 @@
 import "./Form.css";
-import React from "react";
 
 const FormField = ({ label, id, type = "text", value, onChange, children }) => {
   return (

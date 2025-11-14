@@ -27,7 +27,9 @@ function Account() {
           <p className="account-info">01.01.2001</p>
           <p className="account-info">ID: 123456789</p>
           <p className="account-info">ФГАОУ ВО “СПБПУ им. Петра Великого”</p>
-          <p className="account-info">Институт птичьих перьев и змеиной чешуи</p>
+          <p className="account-info">
+            Институт птичьих перьев и змеиной чешуи
+          </p>
           <p className="account-info warnings">Выговоры: 0</p>
 
           <div className="account-rectangle">
@@ -65,15 +67,22 @@ function Account() {
               <p className="dormitory-label">Парковка</p>
               <span className="status-badge notfound">Не найдено</span>
             </div>
-          </div>
 
-          <div className="mini-blocks">
-
-            <div className="mini-item">
-              <div className="mini-rectangle">
-                <img src="./paperclip.svg" className="mini-icon" alt="docs" />
+            <div className="access-blocks">
+              <div className="access-item-wrapper">
+                <div className="access-item">Пропуск</div>
+                <div className="qr-wrapper">
+                  <img src="./qr.png" alt="QR" className="qr-image" />
+                  <div className="qr-overlay">Открыть QR</div>
+                </div>
               </div>
-              <p className="mini-label">Документы</p>
+              <div className="access-item-wrapper">
+                <div className="access-item">LeaderID</div>
+                <div className="qr-wrapper">
+                  <img src="./qr.png" alt="QR" className="qr-image" />
+                  <div className="qr-overlay">Открыть QR</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

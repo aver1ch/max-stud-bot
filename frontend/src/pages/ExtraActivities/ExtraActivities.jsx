@@ -21,7 +21,7 @@ function ExtraActivities() {
             iconColor="#000000ff"
           />
           <Button text="Мероприятия" onClick={() => navigate("/events")} />
-          <Button text="Секции" onClick={() => navigate("/sections")} />
+          <Button text="Секции и спорт" onClick={() => navigate("/sections")} />
         </MainContent>
       </div>
       <Footer />

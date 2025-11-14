@@ -49,7 +49,7 @@ function MainInfo() {
             iconColor="#000000ff"
           />
           <div className="info-center">
-            <h2 className="dorm-title">1 общежитие</h2>
+            <h2 className="dorm-title">1 ОБЩЕЖИТИЕ</h2>
             <img src="./domscheme.png" alt="scheme" className="dorm-scheme" />
             <div className="floor-select-wrapper">
               <select

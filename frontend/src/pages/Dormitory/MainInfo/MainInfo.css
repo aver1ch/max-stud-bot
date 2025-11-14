@@ -10,7 +10,8 @@
   font-weight: 500;
   color: #274253;
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+  text-shadow: 35px 15px 0px rgba(28, 49, 60, 0.13), -35px -15px 0px rgba(28, 48, 61, 0.13);
   
 }
 

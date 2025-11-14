@@ -1,5 +1,5 @@
 // src/api/auth.js
-const API_BASE_URL = "http://46.173.25.248:8080";
+const API_BASE_URL = "https://46.173.25.248:8080";
 
 export async function loginRequest(data) {
   try {

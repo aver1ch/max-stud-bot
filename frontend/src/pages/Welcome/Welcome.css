@@ -3,12 +3,12 @@
   font-size: 14px; 
   font-weight: 300;
   min-width: 270px;
-  max-width: 90%; 
+  max-width: 100%; 
   display: flex;
   gap: 8px;
   align-items: center;
   padding-left: 0;
-  margin-left: 15px; /* небольшой отступ слева */
+  margin-left: 15px;
 }
 
 .welcome-desc::before {
@@ -45,8 +45,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 317px; /* ширина фото */
-  margin-top: 10px; /* небольшой отступ под фото */
+  width: 317px; 
+  margin-top: 10px;
   padding: 0 25px;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .container img {
-  width: 80px;
+  width: 110px;
   height: auto;
   opacity: 0;
   transform: translateY(-20px) scale(0.95);
@@ -151,4 +151,9 @@
   background-color: white;
   color: #274253;
   font-weight: 650;
+}
+
+.welcome-logo img{
+  height: 110px;
+  width: 110px;
 }

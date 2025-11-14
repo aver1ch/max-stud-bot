@@ -31,13 +31,13 @@
 }
 
 .small-circle {
-  width: 40px;
-  height: 40px;
+  width: 43px;
+  height: 43px;
 }
 
 .small-circle img {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 }
 
 .medium-circle {
@@ -54,6 +54,6 @@
 }
 
 .small-circle img.message {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
 }

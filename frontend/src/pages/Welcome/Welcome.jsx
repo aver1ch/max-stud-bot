@@ -7,7 +7,7 @@ function Welcome() {
   return (
     <main>
       <div className="container colored">
-        <img src="/footerlogo.svg" alt="Logo" />
+          <img src="/newlogo3.svg" alt="Logo" className="welcome-logo" />
         <div className="text-wrapper">
           <h1 className="welcome-desc-title">Альма поможет:</h1>
           <p className="welcome-desc">Заплатить за общежитие</p>

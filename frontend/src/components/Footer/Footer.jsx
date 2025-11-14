@@ -17,7 +17,7 @@ function Footer() {
           <img src="./message.svg" className="message" alt="msg" />
         </div>
         <div className="circle medium-circle" onClick={scrollToTop}>
-          <img src="./footerlogo.svg" alt="logo" />
+          <img src="./newlogo3.svg" alt="logo" />
         </div>
         <div className="circle small-circle">
           <img src="./settings.svg" alt="settings" />

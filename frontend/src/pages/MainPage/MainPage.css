@@ -100,12 +100,19 @@
   color: #c0392b;
 }
 
+.react-calendar__tile {
+  position: relative; /* важно для абсолютной точки */
+}
+
 .booking-dot {
   width: 6px;
   height: 6px;
   background: #274253;
   border-radius: 50%;
-  margin: 3px auto 0;
+  position: absolute;
+  bottom: 4px; /* чуть ниже числа */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .react-calendar__tile:enabled:focus {

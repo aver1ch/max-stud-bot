@@ -1,6 +1,5 @@
 FROM golang:1.23.4-alpine AS builder
 
-
 WORKDIR /app
 
 COPY go.mod go.sum ./
@@ -15,6 +14,8 @@ WORKDIR /app
 
 COPY --from=builder /app/server .
 COPY --from=builder /app/dist ./dist
+
+COPY internal/db/init.sql ./internal/db/init.sql
 
 EXPOSE 8080
 

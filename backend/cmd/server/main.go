@@ -1,9 +1,7 @@
 /*
 Юзер будет один:
-Закинуть в постгру юзеров для каждой страницы
-Написать обработку запросов и ответов
-Докер
-Деплой
+подгрузка всего
+прачки, бельевуха, учебка, студклуб
 Ридмим
 Презентация
 */
@@ -52,7 +50,7 @@ func main() {
 	dbpool := db.ConnectPostgres()
 	defer dbpool.Close()
 
-	err := db.RunSQLFile(dbpool, "../backend/internal/db/init.sql")
+	err := db.RunSQLFile(dbpool, "/app/internal/db/init.sql")
 	if err != nil {
 		slog.Error("Failed to run init.sql", "error", err)
 	}

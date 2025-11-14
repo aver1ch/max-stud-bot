@@ -2,28 +2,48 @@ package db
 
 import (
 	"context"
-	"log"
 	"log/slog"
+	"os"
 	"time"
 
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func ConnectMongo() *mongo.Client {
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
-	slog.Info("Try to connect to mongo")
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
-	if err != nil {
-		log.Fatalf("Mongo connection error: %v", err)
+func ConnectPostgres() *pgxpool.Pool {
+	dsn := os.Getenv("DATABASE_URL")
+	if dsn == "" {
+		dsn = "postgres://admin:1234@localhost:5432/maxstud?sslmode=disable"
 	}
 
-	slog.Info("Check the connection")
-	if err := client.Ping(ctx, nil); err != nil {
-		log.Fatalf("Mongo ping error: %v", err)
+	slog.Info("Connecting to Postgres", "dsn", dsn)
+
+	var dbpool *pgxpool.Pool
+	var err error
+
+	// Таймаут на подключение
+	timeout := 30 * time.Second
+	deadline := time.Now().Add(timeout)
+
+	for time.Now().Before(deadline) {
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+
+		dbpool, err = pgxpool.New(ctx, dsn)
+		if err == nil {
+			err = dbpool.Ping(ctx)
+		}
+
+		cancel()
+
+		if err == nil {
+			slog.Info("Connected to PostgreSQL")
+			return dbpool
+		}
+
+		slog.Info("Postgres not ready yet, retrying in 2s...", "error", err)
+		time.Sleep(2 * time.Second)
 	}
 
-	slog.Info("Connected to MongoDB")
-	return client
+	// Если не удалось подключиться за timeout
+	slog.Error("Failed to connect to Postgres after retries", "error", err)
+	panic(err)
 }

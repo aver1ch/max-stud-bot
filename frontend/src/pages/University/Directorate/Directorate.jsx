@@ -70,7 +70,7 @@ function Directorate() {
               </div>
             </div>
             <div className="directorate-btn-wrapper">
-              <Button text="Подробнее" />
+              <Button text="Cвязаться" />
             </div>
           </div>
         </MainContent>

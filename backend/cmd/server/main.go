@@ -1,3 +1,36 @@
+/*
+Юзер будет один:
+подгрузка всего
+прачки, бельевуха, учебка, студклуб
+Ридмим
+Презентация
+*/
+
+/*
+Что мне реально нужно
+
+номер группы
+номер зачетки
+номер общежития
+должность
+код пароль
+белье
+время брони учебки
+время брони прачки
+время брони сушки
+обмен белья да/нет
+вызов мастера да/нет
+
+
+
+Так же будут сущности:
+общежитие
+Прачка
+Сушка
+Учебка
+Обмен белья
+*/
+
 package main
 
 import (
@@ -5,7 +38,6 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-
 	"server/internal/db"
 	"server/internal/handlers"
 	"server/internal/repository"
@@ -13,11 +45,17 @@ import (
 )
 
 func main() {
-	slog.Info("Server starts\n Initialization of database")
-	client := db.ConnectMongo("mongodb://localhost:27017")
-	db := client.Database("R2")
+	slog.Info("Server starting...")
 
-	distDir := "../frontend/dist"
+	dbpool := db.ConnectPostgres()
+	defer dbpool.Close()
+
+	err := db.RunSQLFile(dbpool, "/app/internal/db/init.sql")
+	if err != nil {
+		slog.Error("Failed to run init.sql", "error", err)
+	}
+
+	distDir := "./dist"
 	fs := http.FileServer(http.Dir(distDir))
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -29,24 +67,15 @@ func main() {
 		}
 		fs.ServeHTTP(w, r)
 	})
-	slog.Info("Initialization of repositories")
-	userRepo := repository.NewUserRepository(db.Collection("users"))
-	slog.Info("Collection users is created")
 
-	slog.Info("Initialization of services")
-	regService := services.NewRegService(userRepo)
-	authService := services.NewAuthService(userRepo)
-	slog.Info("Initialization of services successful")
+	studentsRepo := repository.NewStudentRepository(dbpool)
+	employeesRepo := repository.NewEmployeeRepository(dbpool)
 
-	slog.Info("Initialization of handlers")
-	regHandler := handlers.NewRegHandler(regService)
+	authService := services.NewAuthService(studentsRepo, employeesRepo)
 	authHandler := handlers.NewAuthHandler(authService)
-	slog.Info("Initialization of handlers successful")
 
-	slog.Info("Initialization of routes")
 	http.HandleFunc("/api/login", authHandler.LoginHandler)
-	http.HandleFunc("/api/register", regHandler.RegistrationHandler)
-	slog.Info("Initialization of routes successful")
 
+	slog.Info("Server started on :8080")
 	http.ListenAndServe(":8080", nil)
 }

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import Form from "../../components/Form/Form";
 import "./Login.css";
+import { loginRequest } from "../../api/auth.js";
 
 function Login() {
   const navigate = useNavigate();
@@ -11,10 +12,34 @@ function Login() {
   const [role, setRole] = useState("student");
   const [code, setCode] = useState("");
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const data = {
+      login: username,
+      password: password,
+      role: role,
+      codePassword: role === "employee" ? code : null,
+    };
+
+    try {
+      const response = await loginRequest(data);
+
+      if (response.isAuth) {
+        navigate("/mainpage");
+      } else {
+        alert("Неверный логин или пароль");
+      }
+    } catch (err) {
+      console.error("Ошибка при логине:", err);
+      alert("Произошла ошибка при подключении к серверу", err);
+    }
+  }
+
   return (
     <main>
       <div className="container colored">
-        <div className="input-wrapper">
+        <form className="input-wrapper" onSubmit={handleSubmit}>
           <Form
             label="Логин"
             id="username"
@@ -62,9 +87,8 @@ function Login() {
               placeholder="Введите код-пароль"
             />
           )}
-
-          <Button text="Войти" onClick={() => navigate("/mainpage")} />
-        </div>
+          <Button text="Войти" type="submit" />
+        </form>
       </div>
     </main>
   );

@@ -17,30 +17,26 @@ func NewAuthHandler(service *services.AuthService) *AuthHandler {
 }
 
 func (h *AuthHandler) LoginHandler(w http.ResponseWriter, r *http.Request) {
-	var err error
-	slog.Info("Check is request is POST in LoginHandler function")
 	if r.Method != http.MethodPost {
 		http.Error(w, "Only POST allowed", http.StatusMethodNotAllowed)
 		return
 	}
 
 	var credentials models.LoginRequest
-	slog.Info("Pull login and password from request in LoginHandler function")
-	if err = json.NewDecoder(r.Body).Decode(&credentials); err != nil {
-		http.Error(w, "invalid json", http.StatusBadRequest)
+	if err := json.NewDecoder(r.Body).Decode(&credentials); err != nil {
+		http.Error(w, "Invalid JSON", http.StatusBadRequest)
 		return
 	}
 
 	isSuccess, err := h.service.Login(credentials)
+	if err != nil {
+		slog.Error("Login error", "error", err)
+		http.Error(w, err.Error(), http.StatusUnauthorized)
+		return
+	}
 
-	slog.Info("Login and password is valid")
+	resp := models.AuthResponse{IsAuth: isSuccess}
 
-	slog.Info("Cooking response")
-	response := map[string]bool{"isAuth": isSuccess}
-
-	slog.Info("Sending response")
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(response)
-
-	return
+	json.NewEncoder(w).Encode(resp)
 }

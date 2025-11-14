@@ -1,16 +1,12 @@
 package models
 
 type LoginRequest struct {
-	Login    string `bson:"login"`
-	Password string `bson:"password"`
-}
-
-type RegisterRequest struct {
-	Login    string `bson:"login"`
-	Password string `bson:"password"`
+	Login        string  `json:"login"`
+	Password     string  `json:"password"`
+	Role         string  `json:"role"`
+	CodePassword *string `json:"codePassword,omitempty"`
 }
 
 type AuthResponse struct {
-	Token string `bson:"token"`
-	User  User   `bson:"user"`
+	IsAuth bool `json:"isAuth"`
 }

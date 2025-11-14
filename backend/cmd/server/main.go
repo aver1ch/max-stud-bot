@@ -48,7 +48,7 @@ func main() {
 	dbpool := db.ConnectPostgres()
 	defer dbpool.Close()
 
-	err := db.RunSQLFile(dbpool, "/app/internal/db/init.sql")
+	err := db.RunSQLFile(dbpool, "./internal/db/init.sql")
 	if err != nil {
 		slog.Error("Failed to run init.sql", "error", err)
 	}

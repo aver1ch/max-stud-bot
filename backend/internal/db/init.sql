@@ -1,3 +1,19 @@
+DROP TABLE IF EXISTS laundry_bookings CASCADE;
+DROP TABLE IF EXISTS dryer_bookings CASCADE;
+DROP TABLE IF EXISTS studyroom_bookings CASCADE;
+DROP TABLE IF EXISTS linen_exchanges CASCADE;
+DROP TABLE IF EXISTS master_requests CASCADE;
+DROP TABLE IF EXISTS grades CASCADE;
+DROP TABLE IF EXISTS subjects CASCADE;
+DROP TABLE IF EXISTS students CASCADE;
+DROP TABLE IF EXISTS dorms CASCADE;
+
+CREATE TABLE dorms (
+    id SERIAL PRIMARY KEY,
+    name_of_dorm TEXT NOT NULL,
+    address TEXT
+);
+
 CREATE TABLE students (
     id SERIAL PRIMARY KEY,
     login TEXT UNIQUE NOT NULL,
@@ -10,13 +26,7 @@ CREATE TABLE students (
     university TEXT NOT NULL,
     faculty TEXT NOT NULL,
     reprimands INT NOT NULL,
-    payment_status_dorm BOOLEAN NOT NULL,
-);
-
-CREATE TABLE dorms (
-    id SERIAL PRIMARY KEY,
-    name_of_dorm TEXT NOT NULL,
-    address TEXT
+    payment_status_dorm BOOLEAN NOT NULL
 );
 
 CREATE TABLE laundry_bookings (
@@ -71,14 +81,30 @@ CREATE TABLE grades (
     UNIQUE(student_id, subject_id, semester)
 );
 
-INSERT INTO students (login, password)
-VALUES ('averich.ve@edu.spbstu.ru', '123', '5132701/20001', '3153164363', 'Общежитие №1', '2000-01-01', 'Аверич Владимир Евгениевич', 'СПБПУ', 'ИКНК', 2, FALSE),
-       ('averich.pa@edu.spbstu.ru', 'hahich321', '5132701/20002', '4353546354', 'Общежитие №2', '2001-02-02', 'Аверич Полина Александровна', 'СПБПУ', 'ИЭ', 0, TRUE),
-       ('kringalov.sv@edu.spbstu.ru', 'ktonacpal2003', '5132701/20003', '635657336', 'Общежитие №3', '2002-03-03', 'Кринжалов Сергей Владимирович', 'СПБПУ', 'ИКНК', 1, FALSE),
-
 INSERT INTO dorms (name_of_dorm, address)
-VALUES ('Общежитие №1', 'ул. Ленина, д. 1'),
+VALUES 
+  ('Общежитие №1', 'ул. Ленина, д. 1'),
+  ('Общежитие №2', 'ул. Пушкина, д. 2'),
+  ('Общежитие №3', 'ул. Гагарина, д. 3')
 ON CONFLICT DO NOTHING;
+
+INSERT INTO subjects (id, name) VALUES
+  (1, 'Математика'),
+  (2, 'Физика'),
+  (3, 'Информатика'),
+  (4, 'История')
+ON CONFLICT DO NOTHING;
+
+
+INSERT INTO students (
+    login, password, group_number, gradebook_number, dorm_id,
+    date_of_birth, full_name, university, faculty, reprimands, payment_status_dorm
+)
+VALUES
+('averich.ve@edu.spbstu.ru', '123', '5132701/20001', '3153164363', 1, '2000-01-01', 'Аверич Владимир Евгениевич', 'СПБПУ', 'ИКНК', 2, FALSE),
+('averich.pa@edu.spbstu.ru', 'hahich321', '5132701/20002', '4353546354', 2, '2001-02-02', 'Аверич Полина Александровна', 'СПБПУ', 'ИЭ', 0, TRUE),
+('kringalov.sv@edu.spbstu.ru', 'ktonacpal2003', '5132701/20003', '635657336', 3, '2002-03-03', 'Кринжалов Сергей Владимирович', 'СПБПУ', 'ИКНК', 1, FALSE);
+
 
 INSERT INTO grades (student_id, subject_id, semester, teacher, control_type, grade) VALUES 
 (1, 1, 1, 'Семен Семенович', 'Экзамен', 3), 

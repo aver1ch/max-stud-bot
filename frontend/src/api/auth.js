@@ -1,4 +1,3 @@
-// src/api/auth.js
 const API_BASE_URL = "";
 
 export async function loginRequest(data) {
@@ -15,12 +14,14 @@ export async function loginRequest(data) {
       body: JSON.stringify(data),
     });
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.message || "Ошибка авторизации");
+    const result = await response.json();
+
+    if (!response.ok || !result.isAuth) {
+      const message = result.error || "Ошибка авторизации";
+      throw new Error(message);
     }
 
-    return await response.json();
+    return result.user;
   } catch (err) {
     console.error("Ошибка API:", err);
     throw err;

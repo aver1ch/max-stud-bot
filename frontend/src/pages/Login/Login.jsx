@@ -14,25 +14,27 @@ function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
+  
     const data = {
       login: username,
       password: password,
       role: role,
       codePassword: role === "employee" ? code : null,
     };
-
+  
     try {
-      const response = await loginRequest(data);
-
-      if (response.isAuth) {
+      const user = await loginRequest(data);
+  
+      if (user) {
+        console.log("Пользователь вошёл:", user);
+        localStorage.setItem("user", JSON.stringify(user));
         navigate("/mainpage");
       } else {
         alert("Неверный логин или пароль");
       }
     } catch (err) {
       console.error("Ошибка при логине:", err);
-      alert("Произошла ошибка при подключении к серверу", err);
+      alert("Произошла ошибка при подключении к серверу");
     }
   }
 

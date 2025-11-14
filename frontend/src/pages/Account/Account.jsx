@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import "./Account.css";
 import MainContent from "../../components/MainContent/MainContent";
 import Footer from "../../components/Footer/Footer";
@@ -6,6 +7,22 @@ import { useNavigate } from "react-router-dom";
 
 function Account() {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    } else {
+      // если пользователя нет, редирект на логин
+      navigate("/login");
+    }
+  }, [navigate]);
+
+  if (!user) {
+    return <p>Загрузка данных...</p>;
+  }
+
   return (
     <>
       <div className="hnav">
@@ -23,21 +40,24 @@ function Account() {
             alt="profilephoto"
             className="profile-photo"
           />
-          <p className="account-info">Иванов Иван Иванович</p>
-          <p className="account-info">01.01.2001</p>
-          <p className="account-info">ID: 123456789</p>
-          <p className="account-info">ФГАОУ ВО “СПБПУ им. Петра Великого”</p>
-          <p className="account-info">
-            Институт птичьих перьев и змеиной чешуи
-          </p>
-          <p className="account-info warnings">Выговоры: 0</p>
+          <p className="account-info">{user.fullName}</p>
+          <p className="account-info">{user.dateOfBirth}</p>
+          <p className="account-info">ID: {user.id}</p>
+          <p className="account-info">{user.university}</p>
+          <p className="account-info">{user.faculty}</p>
+          <p className="account-info warnings">Выговоры: {user.reprimands}</p>
 
           <div className="account-rectangle">
             <p className="contact-title">Контактные данные:</p>
 
             <label className="contact-label">Электронная почта:</label>
             <div className="input-wrapper">
-              <input type="email" className="contact-input" />
+              <input
+                type="email"
+                className="contact-input"
+                value={user.email || ""}
+                readOnly
+              />
               <img
                 src="./accounteditpen.svg"
                 alt="edit"
@@ -47,7 +67,12 @@ function Account() {
 
             <label className="contact-label">Номер телефона:</label>
             <div className="input-wrapper">
-              <input type="tel" className="contact-input" />
+              <input
+                type="tel"
+                className="contact-input"
+                value={user.phone || ""}
+                readOnly
+              />
               <img
                 src="./accounteditpen.svg"
                 alt="edit"
@@ -58,14 +83,18 @@ function Account() {
 
           <div className="dormitory-block">
             <div className="dormitory-row">
-              <p className="dormitory-label">Общежитие №1</p>
-              <span className="status-badge paid">Оплачено</span>
+              <p className="dormitory-label">Общежитие №{user.dormId}</p>
+              <span className="status-badge paid">
+                {user.paymentStatusDorm ? "Оплачено" : "Не оплачено"}
+              </span>
             </div>
-            <p className="dormitory-room">Комната №666</p>
+            <p className="dormitory-room">Комната №{user.roomNumber || "–"}</p>
 
             <div className="dormitory-row">
               <p className="dormitory-label">Парковка</p>
-              <span className="status-badge notfound">Не найдено</span>
+              <span className="status-badge notfound">
+                {user.parking ? "Есть" : "Не найдено"}
+              </span>
             </div>
 
             <div className="access-blocks">

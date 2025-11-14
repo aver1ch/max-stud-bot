@@ -26,7 +26,9 @@ CREATE TABLE students (
     university TEXT NOT NULL,
     faculty TEXT NOT NULL,
     reprimands INT NOT NULL,
-    payment_status_dorm BOOLEAN NOT NULL
+    payment_status_dorm BOOLEAN NOT NULL,
+    number_of_phone TEXT NOT NULL,
+    room_number INT NOT NULL
 );
 
 CREATE TABLE laundry_bookings (
@@ -98,12 +100,13 @@ ON CONFLICT DO NOTHING;
 
 INSERT INTO students (
     login, password, group_number, gradebook_number, dorm_id,
-    date_of_birth, full_name, university, faculty, reprimands, payment_status_dorm
+    date_of_birth, full_name, university, faculty, reprimands, payment_status_dorm, 
+    number_of_phone, room_number
 )
 VALUES
-('averich.ve@edu.spbstu.ru', '123', '5132701/20001', '3153164363', 1, '2000-01-01', 'Аверич Владимир Евгениевич', 'СПБПУ', 'ИКНК', 2, FALSE),
-('averich.pa@edu.spbstu.ru', 'hahich321', '5132701/20002', '4353546354', 2, '2001-02-02', 'Аверич Полина Александровна', 'СПБПУ', 'ИЭ', 0, TRUE),
-('kringalov.sv@edu.spbstu.ru', 'ktonacpal2003', '5132701/20003', '635657336', 3, '2002-03-03', 'Кринжалов Сергей Владимирович', 'СПБПУ', 'ИКНК', 1, FALSE);
+('averich.ve@edu.spbstu.ru', '123', '5132701/20001', '3153164363', 1, '2000-01-01', 'Аверич Владимир Евгениевич', 'Санкт-Петербургский политехнический универститет Петра Великого', 'Институт комьютерных наук и кибербезопасности', 2, FALSE, '+79528128128', 313),
+('averich.pa@edu.spbstu.ru', 'hahich321', '5132701/20002', '4353546354', 2, '2001-02-02', 'Аверич Полина Александровна', 'Санкт-Петербургский политехнический универститет Петра Великого', 'Институт энергетики', 0, TRUE, '+79528128128', 314), 0, TRUE, '+79521461364', 313),
+('kringalov.sv@edu.spbstu.ru', 'ktonacpal2003', '5132701/20003', '635657336', 3, '2002-03-03', 'Кринжалов Сергей Владимирович', 'Санкт-Петербургский политехнический универститет Петра Великого', 'Институт компьютерных наук и кибербезопасности', 1, FALSE, '+79528153128', 322);
 
 
 INSERT INTO grades (student_id, subject_id, semester, teacher, control_type, grade) VALUES 

@@ -14,7 +14,6 @@ function Account() {
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     } else {
-      // если пользователя нет, редирект на логин
       navigate("/login");
     }
   }, [navigate]);
@@ -48,14 +47,14 @@ function Account() {
           <p className="account-info warnings">Выговоры: {user.reprimands}</p>
 
           <div className="account-rectangle">
-            <p className="contact-title">Контактные данные:</p>
+            <p className="contact-title">Контактные данные</p>
 
             <label className="contact-label">Электронная почта:</label>
             <div className="input-wrapper">
               <input
                 type="email"
                 className="contact-input"
-                value={user.email || ""}
+                value={user.login || ""}
                 readOnly
               />
               <img
@@ -70,7 +69,7 @@ function Account() {
               <input
                 type="tel"
                 className="contact-input"
-                value={user.phone || ""}
+                value={user.numberOfPhone || ""}
                 readOnly
               />
               <img
@@ -88,7 +87,7 @@ function Account() {
                 {user.paymentStatusDorm ? "Оплачено" : "Не оплачено"}
               </span>
             </div>
-            <p className="dormitory-room">Комната №{user.roomNumber || "–"}</p>
+            <p className="dormitory-room">Комната №{user.roomNumber || " -"}</p>
 
             <div className="dormitory-row">
               <p className="dormitory-label">Парковка</p>

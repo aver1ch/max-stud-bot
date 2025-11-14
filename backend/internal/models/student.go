@@ -7,15 +7,17 @@ type Student struct {
 	GroupNumber     string `json:"groupNumber"`
 	GradebookNumber string `json:"gradebookNumber"`
 	DormID          int    `json:"dormId"`
-	DateOfBirth     string `json:"dateOfBirth"` // или time.Time
+	DateOfBirth     string `json:"dateOfBirth"`
 	FullName        string `json:"fullName"`
 	University      string `json:"university"`
 	Faculty         string `json:"faculty"`
 	Reprimands      int    `json:"reprimands"`
 	PaymentStatus   bool   `json:"paymentStatusDorm"`
+	NumberOfPhone   string `json:"numberOfPhone"`
+	RoomNumber      int    `json:"roomNumber"`
 }
 
-func NewStudent(login, password, groupNumber, gradebookNumber, fullName, university, faculty, dateOfBirth string, dormID int, reprimands int, paymentStatus bool) *Student {
+func NewStudent(login, password, groupNumber, gradebookNumber, fullName, university, faculty, dateOfBirth string, dormID int, reprimands int, paymentStatus bool, numberOfPhone string, roomNumber int) *Student {
 	return &Student{
 		Login:           login,
 		Password:        password,
@@ -28,5 +30,7 @@ func NewStudent(login, password, groupNumber, gradebookNumber, fullName, univers
 		Faculty:         faculty,
 		Reprimands:      reprimands,
 		PaymentStatus:   paymentStatus,
+		NumberOfPhone:   numberOfPhone,
+		RoomNumber:      roomNumber,
 	}
 }

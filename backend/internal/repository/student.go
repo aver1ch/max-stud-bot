@@ -32,7 +32,9 @@ func (r *StudentRepository) FindByLogin(login string) (*models.Student, error) {
         university,
         faculty,
         reprimands,
-        payment_status_dorm
+        payment_status_dorm,
+		number_of_phone,
+		room_number
     FROM students
     WHERE login = $1
 `
@@ -50,6 +52,8 @@ func (r *StudentRepository) FindByLogin(login string) (*models.Student, error) {
 		&student.Faculty,
 		&student.Reprimands,
 		&student.PaymentStatus,
+		&student.NumberOfPhone,
+		&student.RoomNumber,
 	)
 	if err != nil {
 		return nil, err

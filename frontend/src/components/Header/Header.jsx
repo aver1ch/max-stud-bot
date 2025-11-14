@@ -20,6 +20,7 @@ function Header() {
   }
 
   const parts = user.fullName.split(" ");
+  
   return (
     <header>
       <div className="header-container">

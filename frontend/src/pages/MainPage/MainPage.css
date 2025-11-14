@@ -1,18 +1,16 @@
 .mp-btn {
   animation: none;
   font-size: 17px;
-  font-weight: 600;
-  min-width: 330px;
+  font-weight: 500;
 }
 
 .promoimage {
   width: 317px;
   height: 210px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 25px;
   display: block;
 }
-
 
 .calendar-container {
   display: flex;
@@ -20,22 +18,98 @@
   align-items: center;
   background: white;
   border-radius: 15px;
+  margin-top: 30px;
   padding: 15px;
   width: 350px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .react-calendar {
-  border: none;
   width: 100%;
+  background: white;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.react-calendar__navigation button {
+  color: #274253;
   background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.react-calendar__navigation button:hover {
+  background: rgba(39, 66, 83, 0.1);
+}
+
+.react-calendar__month-view__weekdays {
+  background: #ffffff;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #69859b;
+  font-weight: 200;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  font-size: 1px;
+  font-weight: 300;
+  color: #274253;
+}
+
+.react-calendar__tile {
+  height: 55px;
+  padding: 6px;
+  background: white;
+  color: #274253;
+  font-size: 14px;
+  border-radius: 12px;
+  margin: 4px;
+  transition: 0.2s;
+}
+
+.react-calendar__tile--now {
+  background: rgba(39, 66, 83, 0.15);
+  font-weight: 600;
+}
+
+.react-calendar__tile--active {
+  background: #274253 !important;
+  color: white !important;
+  border-radius: 12px;
+}
+
+.react-calendar__tile:hover {
+  background: rgba(39, 66, 83, 0.08);
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #c0392b;
 }
 
 .booking-dot {
-  color: #274253;
-  font-size: 14px;
-  text-align: center;
-  margin-top: 2px;
+  width: 6px;
+  height: 6px;
+  background: #274253;
+  border-radius: 50%;
+  margin: 3px auto 0;
+}
+
+.react-calendar__tile:enabled:focus {
+  outline: none;
 }
 
 .calendar-info {
@@ -43,7 +117,6 @@
   color: #274253;
   font-weight: 400;
 }
-
 
 .booking-modal {
   position: fixed;
@@ -83,18 +156,19 @@
 .btn-wrapper {
   display: flex;
   flex-direction: column;
-  padding: 42px 0px;
+  margin-top: 20px;
 }
 
 .main-content-title {
-  color: #3B486A;
+  color: #3b486a;
   font-size: 17px;
   font-weight: 500;
 }
 
 .main-content-rectangle {
-  background-color: #2742534D;
-  width: 390px;
+  background-color: #bec6cc;
+  padding-top: 30px;
+  border-radius: 40px;
 }
 
 .main-content-desc {
@@ -102,4 +176,5 @@
   font-size: 15px;
   font-weight: 400;
   line-height: 22px;
+  padding: 10px;
 }

@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 25px 30px;
+  padding: 0 30px;
+  padding-top: 25px;
+  padding-bottom: 35px;
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
@@ -59,12 +61,10 @@
   margin-bottom: 1px;
 }
 
-/* Нечётные элементы — 20% */
 .subject-block:nth-of-type(odd) {
   background-color: rgba(89, 112, 126, 0.2);
 }
 
-/* Чётные — 30% */
 .subject-block:nth-of-type(even) {
   background-color: rgba(89, 112, 126, 0.3);
 }

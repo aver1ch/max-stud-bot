@@ -20,7 +20,8 @@ function Welcome() {
           <p className="welcome-desc">Записаться на кружки</p>
           <p className="welcome-desc-last">а также многое другое!</p>
           <Button
-            text="Добро пожаловать"
+            text="Добро пожаловать!"
+            className="wlc-btn"
             onClick={() => navigate("/login")}
           />
         </div>

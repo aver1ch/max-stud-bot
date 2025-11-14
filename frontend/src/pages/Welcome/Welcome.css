@@ -1,27 +1,33 @@
 .welcome-desc {
   color: white;
-  font-size: 16px;
+  font-size: 14px; 
   font-weight: 300;
-  max-width: 300px;
+  min-width: 270px;
+  max-width: 90%; 
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
-  padding-left: 30px;
+  padding-left: 0;
+  margin-left: 15px; /* небольшой отступ слева */
 }
 
 .welcome-desc::before {
   content: "";
-  width: 15px;
-  height: 10px;
+  width: 12px;
+  height: 8px;
   mask-image: url("/checkTrue.svg");
   mask-size: contain;
   mask-repeat: no-repeat;
   background-color: white;
+  margin-right: 5px;
 }
 
 .welcome-desc-title {
-  text-align: center;
   color: white;
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding-left: 55px;
+
 }
 
 .welcome-title {
@@ -38,15 +44,19 @@
 .text-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  width: 317px; /* ширина фото */
+  margin-top: 10px; /* небольшой отступ под фото */
+  padding: 0 25px;
 }
 
 .welcome-desc-last {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
-  max-width: 300px;
-  text-align: center;
-  margin-top: 30px; 
+  max-width: 90%;
+  margin-top: 10px;
+  padding-left: 55px;
 }
 
 .welcome-desc,
@@ -59,9 +69,11 @@
 }
 
 .container img {
+  width: 80px;
+  height: auto;
   opacity: 0;
-  transform: translateY(-30px) scale(0.95);
-  animation: fadeLogo 0.8s ease-out 0.0s forwards; 
+  transform: translateY(-20px) scale(0.95);
+  animation: fadeLogo 0.8s ease-out 0s forwards;
 }
 
 @keyframes fadeLogo {
@@ -75,13 +87,11 @@
   }
 }
 
-
 .welcome-desc-title {
   opacity: 0;
   transform: translateY(20px) scale(0.95);
   animation: fadeUp 0.8s ease-out 0.2s forwards;
 }
-
 
 .welcome-desc:nth-child(2) {
   animation: fadeUp 0.8s ease-out 0.3s forwards;
@@ -111,7 +121,6 @@
   animation: fadeUp 0.8s ease-out 0.9s forwards;
 }
 
-
 .text-wrapper button {
   opacity: 0;
   transform: translateY(20px) scale(0.95);
@@ -133,4 +142,13 @@
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+
+.wlc-btn {
+  margin: 15px 0 0 15px; /* кнопка тоже слева */
+  font-size: 15px;
+  max-width: 250px;
+  background-color: white;
+  color: #274253;
+  font-weight: 650;
 }

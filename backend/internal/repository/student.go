@@ -20,10 +20,22 @@ func NewStudentRepository(db *pgxpool.Pool) *StudentRepository {
 func (r *StudentRepository) FindByLogin(login string) (*models.Student, error) {
 	var student models.Student
 	query := `
-		SELECT id, login, password, group_number, gradebook_number, dorm_id, position, linen, master_call
-		FROM students
-		WHERE login = $1
-	`
+    SELECT 
+        id,
+        login,
+        password,
+        group_number,
+        gradebook_number,
+        dorm_id,
+        date_of_birth,
+        full_name,
+        university,
+        faculty,
+        reprimands,
+        payment_status_dorm
+    FROM students
+    WHERE login = $1
+`
 	row := r.db.QueryRow(context.Background(), query, login)
 	err := row.Scan(
 		&student.ID,

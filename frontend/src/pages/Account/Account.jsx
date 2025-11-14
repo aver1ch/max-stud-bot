@@ -91,11 +91,10 @@ function Account() {
 
             <div className="dormitory-row">
               <p className="dormitory-label">Парковка</p>
-              <span className="status-badge notfound">
-                {user.parking ? "Есть" : "Не найдено"}
+              <span className={`status-badge ${user.paymentStatusDorm ? "paid" : "notpaid"}`}>
+                {user.paymentStatusDorm ? "Оплачено" : "Не оплачено"}
               </span>
             </div>
-
             <div className="access-blocks">
               <div className="access-item-wrapper">
                 <div className="access-item">Пропуск</div>

@@ -5,14 +5,17 @@ CREATE TABLE students (
     group_number TEXT NOT NULL,
     gradebook_number TEXT NOT NULL,
     dorm_id INT REFERENCES dorms(id),
-    position TEXT,
-    linen BOOLEAN DEFAULT FALSE,
-    master_call BOOLEAN DEFAULT FALSE
+    date_of_birth TEXT NOT NULL,
+    full_name TEXT NOT NULL,
+    university TEXT NOT NULL,
+    faculty TEXT NOT NULL,
+    reprimands INT NOT NULL,
+    payment_status_dorm BOOLEAN NOT NULL,
 );
 
 CREATE TABLE dorms (
     id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
+    name_of_dorm TEXT NOT NULL,
     address TEXT
 );
 
@@ -69,9 +72,12 @@ CREATE TABLE grades (
 );
 
 INSERT INTO students (login, password)
-VALUES ('averich.ve@edu.spbstu.ru', '123', '5132701/20001'),
-       ('averich.pa@edu.spbstu.ru', 'hahich321', '5132701/20002'),
-       ('kringalov.sv@edu.spbstu.ru', 'ktonacpal2003', '5132701/20003'),
+VALUES ('averich.ve@edu.spbstu.ru', '123', '5132701/20001', '3153164363', 'Общежитие №1', '2000-01-01', 'Аверич Владимир Евгениевич', 'СПБПУ', 'ИКНК', 2, FALSE),
+       ('averich.pa@edu.spbstu.ru', 'hahich321', '5132701/20002', '4353546354', 'Общежитие №2', '2001-02-02', 'Аверич Полина Александровна', 'СПБПУ', 'ИЭ', 0, TRUE),
+       ('kringalov.sv@edu.spbstu.ru', 'ktonacpal2003', '5132701/20003', '635657336', 'Общежитие №3', '2002-03-03', 'Кринжалов Сергей Владимирович', 'СПБПУ', 'ИКНК', 1, FALSE),
+
+INSERT INTO dorms (name_of_dorm, address)
+VALUES ('Общежитие №1', 'ул. Ленина, д. 1'),
 ON CONFLICT DO NOTHING;
 
 INSERT INTO grades (student_id, subject_id, semester, teacher, control_type, grade) VALUES 

@@ -32,9 +32,12 @@ func (r *StudentRepository) FindByLogin(login string) (*models.Student, error) {
 		&student.GroupNumber,
 		&student.GradebookNumber,
 		&student.DormID,
-		&student.Position,
-		&student.Linen,
-		&student.MasterCall,
+		&student.DateOfBirth,
+		&student.FullName,
+		&student.University,
+		&student.Faculty,
+		&student.Reprimands,
+		&student.PaymentStatus,
 	)
 	if err != nil {
 		return nil, err

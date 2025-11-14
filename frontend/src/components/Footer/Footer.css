@@ -1,7 +1,7 @@
 .footer {
   width: 100%;
   max-width: 430px;
-  height: 90px;
+  height: 60px;
   background-color: #274253;
   margin: 0 auto;
   display: flex;
@@ -30,20 +30,20 @@
 }
 
 .small-circle {
-  width: 55px;
-  height: 55px;
+  width: 40px;
+  height: 40px;
 }
 
 .small-circle img {
-  width: 33px;
-  height: 33px;
+  width: 25px;
+  height: 25px;
 }
 
 .medium-circle {
   position: relative;
   bottom: 20px;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
 }
 
 .medium-circle img {
@@ -53,6 +53,6 @@
 }
 
 .small-circle img.message {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }

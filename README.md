@@ -1,4 +1,4 @@
-## Приложение для управления общежитием
+# Приложение для управления общежитием
 
 
 Это полнофункциональное приложение для управления жизнью студентов в общежитии, включая:
@@ -33,7 +33,7 @@
 -База данных для студентов, бронирований, оценок и прочего.
 
 
-##Требования
+## Требования
 
 
 -Docker и Docker Compose (для контейнеризированного запуска).
@@ -47,13 +47,17 @@
 
 -PostgreSQL 15+ (для локальной базы данных).
 
+## Запуск локально
+```
+#Полная команда, если вы хотите просто запустить весь код и сразу зайти на сайт по localhost:8080
+git clone https://github.com/aver1ch/max-stud-bot/ && cd max-stud-bot && cd frontend && npm install && npm run build && cd .. && cd backend && go run cmd/server/main.go 
 
-Клонирование репозитория
-git clone <repo-url>
-cd max-stud-bot
+```
 
-Сборка и запуск через Docker (рекомендуется)
-Docker Compose используется для запуска PostgreSQL, бэкенда и Nginx (для сервинга фронтенда через бэкенд).
+## Сборка и запуск через Docker (рекомендуется)
+
+** Docker Compose используется для запуска PostgreSQL, бэкенда и Nginx (для сервинга фронтенда через бэкенд). **
+```
 Сборка фронтенда
 cd frontend
 npm install
@@ -65,119 +69,130 @@ cp -r frontend/build/* backend/dist/
 Сборка и запуск контейнеров
 docker-compose build
 docker-compose up -d
+```
 
-Запускается:
-
-
-db: PostgreSQL по адресу postgres://admin:1234@localhost:5432/maxstud.
+** После выполнения этих команд запускается: **
 
 
-backend: Go-сервер на порту 8080 (internal), обслуживает API и статический фронтенд из /dist.
+- db: PostgreSQL по адресу postgres://admin:1234@localhost:5432/maxstud.
 
 
-nginx: Обратный прокси на портах 80/443 (HTTPS с самоподписанными сертификатами из ./nginx/ssl).
+- backend: Go-сервер на порту 8080 (internal), обслуживает API и статический фронтенд из /dist.
 
 
-Доступ к приложению
+- nginx: Обратный прокси на портах 80/443 (HTTPS с самоподписанными сертификатами из ./nginx/ssl).
 
 
-Откройте https://localhost (или http://localhost:8080 для HTTP).
+### Доступ к приложению
 
 
-API: например, https://localhost/api/laundry.
+Откройте ``` https://localhost ``` (или ``` http://localhost:8080 ``` для HTTP).
 
 
-Инициализация БД: бэкенд при старте выполняет init.sql (создает таблицы, добавляет тестовые данные).
+- API: например, https://localhost/api/laundry.
 
 
-Остановка контейнеров
+- Инициализация БД: бэкенд при старте выполняет init.sql (создает таблицы, добавляет тестовые данные).
+
+
+### Остановка контейнеров
+```
 docker-compose down
 
 Пример запуска через командную строку (после сборки)
 docker-compose up -d db       # Запуск только БД
 docker-compose up -d backend  # Запуск бэкенда (зависит от БД)
 docker-compose up -d nginx    # Запуск Nginx (зависит от бэкенда)
+```
 
-Логи:
+### Логи:
+```
 docker-compose logs -f
+```
 
-
-Локальный запуск (без Docker)
-Для разработки и тестирования.
-Настройка базы данных
+## Локальный запуск (без Docker, для разработки и тестирования. Настройка базы данных) 
 
 
 Установите PostgreSQL.
 
 
-Создайте БД:
+** Создайте БД: **
 
-
+```
 psql -U postgres
 CREATE USER admin WITH PASSWORD '1234';
 CREATE DATABASE maxstud;
 GRANT ALL PRIVILEGES ON DATABASE maxstud TO admin;
+```
 
 
+** Запустите скрипт инициализации: **
 
-Запустите скрипт инициализации:
-
-
+```
 psql -U admin -d maxstud -f backend/internal/db/init.sql
+```
 
-Бэкенд (Go)
+** Бэкенд (Go) **
+```
 cd backend
 go mod tidy
 go run cmd/server/main.go
-
-Переменная окружения:
+```
+** Переменная окружения: **
+```
 export DATABASE_URL=postgres://admin:1234@localhost:5432/maxstud?sslmode=disable
+```
 
-Сервер API доступен на http://localhost:8080, статические файлы из ./dist (сначала соберите фронтенд).
-Фронтенд (React)
+-- Сервер API доступен на http://localhost:8080, статические файлы из ./dist (сначала соберите фронтенд). --
+## Фронтенд (React)
+```
 cd frontend
 npm install
 npm start
+```
+-- Фронтенд запускается на http://localhost:3000. --
 
-Фронтенд запускается на http://localhost:3000.
-Для проксирования запросов к API добавьте "proxy": "http://localhost:8080" в package.json.
-Пример полного локального запуска
+-- Для проксирования запросов к API добавьте "proxy": "http://localhost:8080" в package.json. --
+
+## Пример полного локального запуска
 
 
-Запустите локальную PostgreSQL.
+** Запустите локальную PostgreSQL. **
 
 
 В одном терминале:
 
-
+```
 cd backend && go run cmd/server/main.go
-
+```
 
 
 В другом терминале:
 
-
+```
 cd frontend && npm start
+```
 
-Доступ к фронтенду: http://localhost:3000 (он проксирует API к бэкенду).
-
-Устранение неполадок
-
-
-Проблемы с подключением к БД: проверьте DATABASE_URL, лог PostgreSQL.
+-- Доступ к фронтенду: http://localhost:3000 (он проксирует API к бэкенду). --
 
 
-SSL в Nginx: создайте самоподписанные сертификаты в ./nginx/ssl, например:
+## Устранение неполадок
 
 
+- Проблемы с подключением к БД: проверьте DATABASE_URL, лог PostgreSQL.
+
+
+- SSL в Nginx: создайте самоподписанные сертификаты в ./nginx/ssl, например:
+
+```
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout nginx/ssl/nginx.key -out nginx/ssl/nginx.crt
+```
 
 
-
-Ошибки сборки: убедитесь, что модули Go и пакеты npm актуальны.
-
-
-Тестовые данные: init.sql добавляет студентов/оценки; используйте тестовые данные для логина (например, averich.ve@edu.spbstu.ru / 123).
+- Ошибки сборки: убедитесь, что модули Go и пакеты npm актуальны.
 
 
-Для продакшена: используйте безопасные пароли, реальные SSL-сертификаты и переменные окружения (например, через .env).
+- Тестовые данные: init.sql добавляет студентов/оценки; используйте тестовые данные для логина (например, averich.ve@edu.spbstu.ru / 123).
+
+
+- Для продакшена: используйте безопасные пароли, реальные SSL-сертификаты и переменные окружения (например, через .env).

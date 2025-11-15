@@ -20,7 +20,6 @@ func ConnectPostgres() *pgxpool.Pool {
 	var dbpool *pgxpool.Pool
 	var err error
 
-	// Таймаут на подключение
 	timeout := 30 * time.Second
 	deadline := time.Now().Add(timeout)
 

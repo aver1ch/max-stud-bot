@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 
 function Header() {
-
-  const user = localStorage.getItem("user");
-
+  const rawUser = localStorage.getItem("user");
+  const user = rawUser ? JSON.parse(rawUser) : null;
   const parts = user.fullName.split(" ");
 
   return (
@@ -19,6 +18,7 @@ function Header() {
               className="header-profile-logo"
             />
           </span>
+          {parts[1]}
         </Link>
         <img src="./notify2.svg" alt="notify" className="header-notify" />
       </div>

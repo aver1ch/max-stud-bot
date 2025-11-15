@@ -69,7 +69,9 @@ CREATE TABLE master_requests (
 
 CREATE TABLE subjects (
     id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL
+    name TEXT NOT NULL,
+    semester INT NOT NULL,
+    teacher TEXT NOT NULL
 );
 
 CREATE TABLE grades (
@@ -90,11 +92,11 @@ VALUES
   ('Общежитие №3', 'ул. Гагарина, д. 3')
 ON CONFLICT DO NOTHING;
 
-INSERT INTO subjects (id, name) VALUES
-  (1, 'Математика'),
-  (2, 'Физика'),
-  (3, 'Информатика'),
-  (4, 'История')
+INSERT INTO subjects (id, name, semester, teacher) VALUES
+  (1, 'Математика', 1, 'Семен Семенович'),
+  (2, 'Физика', 1, 'Иванов И.И.'),
+  (3, 'Информатика', 2, 'Петров П.П.'),
+  (4, 'История', 2, 'Сидоров С.С.')
 ON CONFLICT DO NOTHING;
 
 

@@ -1,32 +1,3 @@
-/*
-Юзер будет один:
-подгрузка всего
-прачки, бельевуха, учебка, студклуб
-Ридмим
-Презентация
-*/
-
-/*
-Что мне реально нужно
-
-
-
-Так же будут сущности:
-общежитие
-Прачка
-Сушка
-Учебка
-Обмен белья
-
-зачетка - из базы
-расписание - из базы
-дирекция - из базы
-прачечная - из базы
-учебка - из базы
-вызов мастера - из базы
-сдача белья - из базы
-*/
-
 package main
 
 import (
@@ -39,6 +10,14 @@ import (
 	"server/internal/repository"
 	"server/internal/services"
 )
+
+/*
+
+прачка
+учебка
+вызов мастера
+
+*/
 
 func main() {
 	slog.Info("Server starting...")
@@ -66,11 +45,17 @@ func main() {
 
 	studentsRepo := repository.NewStudentRepository(dbpool)
 	employeesRepo := repository.NewEmployeeRepository(dbpool)
+	subjectsRepo := repository.NewSubjectRepository(dbpool)
 
 	authService := services.NewAuthService(studentsRepo, employeesRepo)
+	gradeService := services.NewGradeService(studentsRepo, subjectsRepo)
+
 	authHandler := handlers.NewAuthHandler(authService)
+	gradeHandler := handlers.NewGradeHandler(gradeService)
 
 	http.HandleFunc("/api/login", authHandler.LoginHandler)
+	http.HandleFunc("/api/grades", gradeHandler.GetGrades)
+	//http.HandleFunc("/api/subjects", gradeHandler.GetSubjects)
 
 	slog.Info("Server started on :8080")
 	http.ListenAndServe(":8080", nil)

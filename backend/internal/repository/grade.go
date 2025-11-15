@@ -6,8 +6,22 @@ import (
 )
 
 func (r *StudentRepository) GetGrades(studentID int) ([]models.Grade, error) {
-	query := `SELECT id, student_id, subject_id, semester, control_type, grade 
-	          FROM grades WHERE student_id=$1 ORDER BY semester, subject_id`
+	query := `
+	SELECT 
+		g.id,
+		g.student_id,
+		g.subject_id,
+		s.name AS subject,
+		g.semester,
+		g.control_type,
+		g.grade,
+		g.teacher
+	FROM grades g
+	JOIN subjects s ON s.id = g.subject_id
+	WHERE g.student_id=$1
+	ORDER BY g.semester, g.subject_id
+`
+
 	rows, err := r.db.Query(context.Background(), query, studentID)
 	if err != nil {
 		return nil, err
@@ -15,9 +29,20 @@ func (r *StudentRepository) GetGrades(studentID int) ([]models.Grade, error) {
 	defer rows.Close()
 
 	var grades []models.Grade
+
 	for rows.Next() {
 		var g models.Grade
-		err := rows.Scan(&g.StudentID, &g.StudentID, &g.SubjectID, &g.Semester, &g.ControlType, &g.Grade)
+		err := rows.Scan(
+			&g.ID,
+			&g.StudentID,
+			&g.SubjectID,
+			&g.Subject,
+			&g.Semester,
+			&g.ControlType,
+			&g.Grade,
+			&g.Teacher,
+		)
+
 		if err != nil {
 			return nil, err
 		}

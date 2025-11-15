@@ -3,9 +3,13 @@ import HeaderNav from "../../../components/HeaderNav/HeaderNav";
 import Header from "../../../components/Header/Header";
 import MainContent from "../../../components/MainContent/MainContent";
 import Footer from "../../../components/Footer/Footer";
+import { getGrades } from "../../../api/grade.js";
 import "./GradeBook.css";
 
-function GradeBook({ studentId }) {
+function GradeBook() {
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const studentId = storedUser?.id;
+
   const [grades, setGrades] = useState([]);
   const [semesterFilter, setSemesterFilter] = useState("Все");
   const [teacherFilter, setTeacherFilter] = useState("Все");
@@ -14,9 +18,9 @@ function GradeBook({ studentId }) {
 
   useEffect(() => {
     async function fetchGrades() {
+      if (!studentId) return;
       try {
-        const res = await fetch(`/api/grades?studentId=${studentId}`);
-        const data = await res.json();
+        const data = await getGrades(studentId);
         setGrades(data);
       } catch (err) {
         console.error("Ошибка при загрузке оценок:", err);
@@ -34,7 +38,7 @@ function GradeBook({ studentId }) {
     );
   });
 
-  const semesters = [...new Set(grades.map((g) => g.semester))].sort((a, b) => a - b);
+  const semesters = ["Все", 1, 2, 3, 4, 5, 6, 7, 8];
   const teachers = ["Все", ...new Set(grades.map((g) => g.teacher))];
   const controlTypes = ["Все", ...new Set(grades.map((g) => g.control_type))];
   const gradeValues = ["Все", ...new Set(grades.map((g) => g.grade))];
@@ -55,68 +59,70 @@ function GradeBook({ studentId }) {
             <div className="grade-header-row">
               <div className="grade-header-item">
                 <p className="grade-label">№ группы:</p>
-                <p className="grade-value">{grades[0]?.group_number || "—"}</p>
+                <p className="grade-value">{storedUser?.groupNumber || "—"}</p>
               </div>
               <div className="grade-header-item">
                 <p className="grade-label">№ зачетки:</p>
-                <p className="grade-value">{grades[0]?.student_id || "—"}</p>
+                <p className="grade-value">{storedUser?.gradebookNumber || "—"}</p>
               </div>
             </div>
 
             {/* Фильтры */}
-            <div className="field">
-              <label className="subject-label">Семестр:</label>
-              <select
-                className="field-select"
-                value={semesterFilter}
-                onChange={(e) => setSemesterFilter(e.target.value)}
-              >
-                <option>Все</option>
-                {semesters.map((s) => (
-                  <option key={s} value={s}>{s}</option>
-                ))}
-              </select>
-            </div>
+            <div className="filters">
+              <div className="field">
+                <label className="subject-label">Семестр:</label>
+                <select
+                  className="field-select"
+                  value={semesterFilter}
+                  onChange={(e) => setSemesterFilter(e.target.value)}
+                >
+                  {semesters.map((s) => (
+                    <option key={s} value={s}>{s}</option>
+                  ))}
+                </select>
+              </div>
 
-            <div className="field">
-              <label className="subject-label">Преподаватель:</label>
-              <select
-                className="field-select"
-                value={teacherFilter}
-                onChange={(e) => setTeacherFilter(e.target.value)}
-              >
-                {teachers.map((t) => (
-                  <option key={t} value={t}>{t}</option>
-                ))}
-              </select>
-            </div>
+              <div className="field">
+                <label className="subject-label">Преподаватель:</label>
+                <select
+                  className="field-select"
+                  value={teacherFilter}
+                  onChange={(e) => setTeacherFilter(e.target.value)}
+                >
+                  {teachers.map((t) => (
+                    <option key={t} value={t}>{t}</option>
+                  ))}
+                </select>
+              </div>
 
-            <div className="field">
-              <label className="subject-label">Тип контроля:</label>
-              <select
-                className="field-select"
-                value={controlFilter}
-                onChange={(e) => setControlFilter(e.target.value)}
-              >
-                {controlTypes.map((c) => (
-                  <option key={c} value={c}>{c}</option>
-                ))}
-              </select>
-            </div>
+              <div className="field">
+                <label className="subject-label">Тип контроля:</label>
+                <select
+                  className="field-select"
+                  value={controlFilter}
+                  onChange={(e) => setControlFilter(e.target.value)}
+                >
+                  {controlTypes.map((c) => (
+                    <option key={c} value={c}>{c}</option>
+                  ))}
+                </select>
+              </div>
 
-            <div className="field">
-              <label className="subject-label">Оценка:</label>
-              <select
-                className="field-select"
-                value={gradeFilter}
-                onChange={(e) => setGradeFilter(e.target.value)}
-              >
-                {gradeValues.map((g) => (
-                  <option key={g} value={g}>{g}</option>
-                ))}
-              </select>
+              <div className="field">
+                <label className="subject-label">Оценка:</label>
+                <select
+                  className="field-select"
+                  value={gradeFilter}
+                  onChange={(e) => setGradeFilter(e.target.value)}
+                >
+                  {gradeValues.map((g) => (
+                    <option key={g} value={g}>{g}</option>
+                  ))}
+                </select>
+              </div>
             </div>
           </div>
+
           {filteredGrades.map((g, idx) => (
             <div className="subject-block" key={idx}>
               <p className="subject-name">{g.subject}</p>

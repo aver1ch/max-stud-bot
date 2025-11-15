@@ -1,0 +1,4 @@
+cd max-stud-bot
+cd frontend && npm install
+cd ..
+cd backend && go mod tidy

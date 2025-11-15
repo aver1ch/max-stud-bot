@@ -27,7 +27,8 @@ export function useDryer() {
         grouped[m].push({
           name: b.student_name,
           date: b.start_time.split("T")[0],
-          time: b.start_time.split("T")[1].slice(0,5)
+          time: b.start_time.split("T")[1].slice(0,5),
+          student_id: b.student_id
         });
       });
       setQueue(grouped);

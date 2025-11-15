@@ -36,7 +36,7 @@ function ChangeOfLinen() {
       <div className="main-content-wrapper">
         <MainContent>
           <HeaderNav
-            text="Обмен постельного белья"
+            text="Обмен белья"
             backTo="/laundry"
             textColor="#000000ff"
             iconColor="#000000ff"

@@ -35,15 +35,18 @@ CREATE TABLE laundry_bookings (
     id SERIAL PRIMARY KEY,
     student_id INT REFERENCES students(id) ON DELETE CASCADE,
     start_time TIMESTAMP NOT NULL,
-    end_time TIMESTAMP NOT NULL
+    end_time TIMESTAMP NOT NULL,
+    machine INT NOT NULL DEFAULT 1
 );
 
 CREATE TABLE dryer_bookings (
     id SERIAL PRIMARY KEY,
     student_id INT REFERENCES students(id) ON DELETE CASCADE,
     start_time TIMESTAMP NOT NULL,
-    end_time TIMESTAMP NOT NULL
+    end_time TIMESTAMP NOT NULL,
+    machine INT NOT NULL DEFAULT 1
 );
+
 
 CREATE TABLE studyroom_bookings (
     id SERIAL PRIMARY KEY,
@@ -149,3 +152,4 @@ INSERT INTO grades (student_id, subject_id, semester, teacher, control_type, gra
 (3, 3, 6, 'Петров П.П.', 'Экзамен', 5), 
 (3, 4, 6, 'Сидоров С.С.', 'Зачёт', 4) 
 ON CONFLICT DO NOTHING;
+

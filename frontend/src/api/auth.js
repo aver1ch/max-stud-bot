@@ -27,27 +27,3 @@ export async function loginRequest(data) {
     throw err;
   }
 }
-
-export async function getGrades(studentId) {
-  try {
-    const res = await fetch(`${API_BASE_URL}/grades?studentId=${studentId}`);
-    if (!res.ok) throw new Error("Ошибка при получении оценок");
-
-    const data = await res.json();
-    
-    return data.map(g => ({
-      id: g.id,
-      student_id: g.student_id,
-      subject_id: g.subject_id,
-      subject: g.subject,
-      semester: g.semester,
-      teacher: g.teacher,
-      control_type: g.control_type, 
-      grade: g.grade,
-      group_number: g.group_number
-    }));
-  } catch (err) {
-    console.error("Ошибка API:", err);
-    return [];
-  }
-}

@@ -3,6 +3,7 @@ package services
 import (
 	"server/internal/models"
 	"server/internal/repository"
+	"time"
 )
 
 type LaundryService struct {
@@ -23,4 +24,8 @@ func (s *LaundryService) AddBooking(b *models.LaundryBooking) error {
 
 func (s *LaundryService) CleanupExpired() error {
 	return s.repo.DeleteExpired()
+}
+
+func (s *LaundryService) IsAvailable(machine int, start, end time.Time) (bool, error) {
+	return s.repo.IsAvailable(machine, start, end)
 }

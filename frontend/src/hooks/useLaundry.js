@@ -1,6 +1,16 @@
 import { useState, useEffect } from "react";
 import { getLaundryBookings, addLaundryBooking } from "../api/laundry.js";
 
+function getCurrentStudentId() {
+  const user = localStorage.getItem("user");
+  if (!user) return null;
+  try {
+    return JSON.parse(user).id;
+  } catch {
+    return null;
+  }
+}
+
 export function useLaundry() {
   const [queue, setQueue] = useState({});
   const [loading, setLoading] = useState(true);
@@ -9,7 +19,8 @@ export function useLaundry() {
   const fetchQueue = async () => {
     setLoading(true);
     try {
-      const data = await getLaundryBookings();
+      const studentId = getCurrentStudentId();
+      const data = await getLaundryBookings(); // очередь синхронизирована для всех
       const grouped = {};
       data.forEach(b => {
         const m = b.machine;
@@ -30,12 +41,12 @@ export function useLaundry() {
 
   const addBookingAPI = async (booking) => {
     await addLaundryBooking(booking);
-    await fetchQueue();
+    await fetchQueue(); // обновляем очередь после брони
   };
 
   useEffect(() => {
     fetchQueue();
   }, []);
 
-  return { queue, loading, error, addBookingAPI };
+  return { queue, loading, error, addBookingAPI, getCurrentStudentId };
 }

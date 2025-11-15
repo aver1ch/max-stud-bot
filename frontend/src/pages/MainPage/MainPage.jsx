@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import MainContent from "../../components/MainContent/MainContent";
 import Footer from "../../components/Footer/Footer";
@@ -7,28 +7,56 @@ import "./MainPage.css";
 import { useNavigate } from "react-router-dom";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import { useLaundry } from "../../hooks/useLaundry.js";
+import { useDryer } from "../../hooks/useDryer.js";
 
 function MainPage() {
   const navigate = useNavigate();
   const [value, setValue] = useState(new Date());
-  const [bookings, setBookings] = useState([
-    { date: "2025-11-15", type: "Стирка", time: "10:00", place: "Машинка №1" },
-    { date: "2025-11-15", type: "Сушка", time: "12:00", place: "Машинка №2" },
-    {
-      date: "2025-11-18",
-      type: "Учебная комната",
-      time: "14:00",
-      place: "Комната 205",
-    },
-  ]);
-
   const [modalBooking, setModalBooking] = useState(null);
+  const [userId, setUserId] = useState(null);
+
+  const { queue: laundryQueue, loading: laundryLoading } = useLaundry();
+  const { queue: dryerQueue, loading: dryerLoading } = useDryer();
+
+  // Получаем ID пользователя из localStorage
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      try {
+        setUserId(JSON.parse(user).id);
+      } catch {}
+    }
+  }, []);
+
+  // Формируем личные брони для календаря
+  const bookings = [];
+  Object.entries(laundryQueue).forEach(([machine, list]) => {
+    list.forEach(b => {
+      if (b.student_id === userId)
+        bookings.push({ ...b, type: "Стирка", place: `Машинка №${machine}` });
+    });
+  });
+  Object.entries(dryerQueue).forEach(([machine, list]) => {
+    list.forEach(b => {
+      if (b.student_id === userId)
+        bookings.push({ ...b, type: "Сушка", place: `Машинка №${machine}` });
+    });
+  });
 
   const handleDateClick = (date) => {
     const formatted = date.toISOString().split("T")[0];
     const bookingList = bookings.filter((b) => b.date === formatted);
     setModalBooking(bookingList.length > 0 ? bookingList : null);
   };
+
+  const tileContent = ({ date }) => {
+    const formatted = date.toISOString().split("T")[0];
+    const hasBooking = bookings.some(b => b.date === formatted);
+    return hasBooking ? <span className="booking-dot" /> : null;
+  };
+
+  if (laundryLoading || dryerLoading) return <p>Загрузка...</p>;
 
   return (
     <div className="app-container">
@@ -58,11 +86,8 @@ function MainPage() {
                 setValue(date);
                 handleDateClick(date);
               }}
-              tileContent={({ date }) => {
-                const formatted = date.toISOString().split("T")[0];
-                const booking = bookings.find((b) => b.date === formatted);
-                return booking ? <span className="booking-dot" /> : null;
-              }}
+              value={value}
+              tileContent={tileContent}
             />
           </div>
 

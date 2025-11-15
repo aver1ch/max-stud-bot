@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HeaderNav from "../../../../components/HeaderNav/HeaderNav";
 import Header from "../../../../components/Header/Header";
 import MainContent from "../../../../components/MainContent/MainContent";
@@ -17,7 +17,7 @@ function getCurrentStudentId() {
   }
 }
 
-function Washing() {
+function Washing({ onBookingAdded }) {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [machine, setMachine] = useState("");
@@ -52,6 +52,7 @@ function Washing() {
       });
       setConfirmed(true);
       setError("");
+      onBookingAdded?.(); // уведомляем родителя о новой брони
     } catch {
       setError("Ошибка при бронировании");
       setConfirmed(false);

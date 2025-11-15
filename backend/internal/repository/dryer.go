@@ -51,3 +51,17 @@ func (r *DryerRepository) DeleteExpired() error {
 	_, err := r.db.Exec(context.Background(), query, time.Now())
 	return err
 }
+
+func (r *DryerRepository) IsAvailable(machine int, start, end time.Time) (bool, error) {
+	query := `
+		SELECT COUNT(*) 
+		FROM dryer_bookings 
+		WHERE machine=$1 AND NOT (end_time <= $2 OR start_time >= $3)
+	`
+	var count int
+	err := r.db.QueryRow(context.Background(), query, machine, start, end).Scan(&count)
+	if err != nil {
+		return false, err
+	}
+	return count == 0, nil
+}

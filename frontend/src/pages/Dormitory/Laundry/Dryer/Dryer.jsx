@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HeaderNav from "../../../../components/HeaderNav/HeaderNav";
 import Header from "../../../../components/Header/Header";
 import MainContent from "../../../../components/MainContent/MainContent";
@@ -17,7 +17,7 @@ function getCurrentStudentId() {
   }
 }
 
-function Dryer() {
+function Dryer({ onBookingAdded }) {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [machine, setMachine] = useState("");
@@ -43,7 +43,7 @@ function Dryer() {
         setError("Не удалось определить пользователя");
         return;
       }
-      
+
       await addBookingAPI({
         student_id: studentId,
         start_time: `${date} ${time}:00`,
@@ -52,6 +52,7 @@ function Dryer() {
       });
       setConfirmed(true);
       setError("");
+      onBookingAdded?.(); // уведомляем родителя о новой брони
     } catch {
       setError("Ошибка при бронировании.");
       setConfirmed(false);

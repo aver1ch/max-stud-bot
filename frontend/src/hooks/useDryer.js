@@ -1,6 +1,16 @@
 import { useState, useEffect } from "react";
 import { getDryerBookings, addDryerBooking } from "../api/laundry.js";
 
+function getCurrentStudentId() {
+  const user = localStorage.getItem("user");
+  if (!user) return null;
+  try {
+    return JSON.parse(user).id;
+  } catch {
+    return null;
+  }
+}
+
 export function useDryer() {
   const [queue, setQueue] = useState({});
   const [loading, setLoading] = useState(true);
@@ -9,7 +19,7 @@ export function useDryer() {
   const fetchQueue = async () => {
     setLoading(true);
     try {
-      const data = await getDryerBookings();
+      const data = await getDryerBookings(); // очередь синхронизирована
       const grouped = {};
       data.forEach(b => {
         const m = b.machine;
@@ -37,5 +47,5 @@ export function useDryer() {
     fetchQueue();
   }, []);
 
-  return { queue, loading, error, addBookingAPI };
+  return { queue, loading, error, addBookingAPI, getCurrentStudentId };
 }
